@@ -31,6 +31,9 @@ struct MetalView: NSViewRepresentable {
         var commandQueue: MTLCommandQueue!
         var renderPipelineState: MTLRenderPipelineState!
 
+        var vertices: [Vertex]!
+        var vertexBuffer: MTLBuffer!
+        
         init(_ parent: MetalView, mtkView: MTKView) {
             self.parent = parent
             self.mtkView = mtkView
@@ -44,6 +47,8 @@ struct MetalView: NSViewRepresentable {
             super.init()
             
             createRenderPipelineState()
+            createVertices()
+            createBuffers()
         }
         
         private func createRenderPipelineState() {
@@ -63,6 +68,17 @@ struct MetalView: NSViewRepresentable {
             }
         }
         
+        private func createVertices() {
+            vertices = [
+                Vertex(position: SIMD3<Float>( 0, 1, 0), color: SIMD4<Float>(1,0,0,1)),
+                Vertex(position: SIMD3<Float>(-1,-1, 0), color: SIMD4<Float>(0,1,0,1)),
+                Vertex(position: SIMD3<Float>( 1,-1, 0), color: SIMD4<Float>(0,0,1,1))
+            ]
+        }
+        private func createBuffers() {
+            vertexBuffer = mtkView.device?.makeBuffer(bytes: vertices, length: MemoryLayout<Vertex>.stride * vertices.count, options: [])
+        }
+        
         func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         }
         
@@ -74,10 +90,17 @@ struct MetalView: NSViewRepresentable {
             let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
             renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
             
-            // Send info to renderCommandEncoder
+            renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+            renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+            
             renderCommandEncoder?.endEncoding()
             commandBuffer?.present(drawable)
             commandBuffer?.commit()
         }
     }
+}
+
+struct Vertex {
+    var position: SIMD3<Float>
+    var color: SIMD4<Float>
 }
