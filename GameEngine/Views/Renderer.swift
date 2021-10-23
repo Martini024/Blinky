@@ -9,7 +9,7 @@ import MetalKit
 
 class Renderer: NSObject {
     
-    var gameObject: GameObject = GameObject()
+    var player = Player()
     
 }
 
@@ -25,7 +25,8 @@ extension Renderer: MTKViewDelegate {
         
         let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
         
-        gameObject.render(renderCommandEncoder: renderCommandEncoder!)
+        player.update(deltaTime: 1 / Float(view.preferredFramesPerSecond))
+        player.render(renderCommandEncoder: renderCommandEncoder!)
         
         renderCommandEncoder?.endEncoding()
         commandBuffer?.present(drawable)

@@ -37,3 +37,8 @@ struct Vertex: Sizable {
 
 extension simd_float3: Sizable { }
 extension simd_float4: Sizable { }
+extension Float: Sizable { }
+
+struct ModelConstants: Sizable {
+    var modelMatrix = matrix_identity_float4x4
+}

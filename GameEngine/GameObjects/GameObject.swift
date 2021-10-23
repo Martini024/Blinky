@@ -7,30 +7,36 @@
 
 import MetalKit
 
-class GameObject {
-    var vertices: [Vertex]!
-    var vertexBuffer: MTLBuffer!
+class GameObject: Node {
     
-    init() {
-        createVertices()
-        createBuffers()
+    var modelConstants = ModelConstants()
+    
+    var mesh: Mesh!
+    
+    init(meshType: MeshType) {
+        mesh = MeshLibrary.mesh(meshType)
     }
     
-    private func createVertices() {
-        vertices = [
-            Vertex(position: simd_float3( 0, 1, 0), color: simd_float4(1,0,0,1)),
-            Vertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,1,0,1)),
-            Vertex(position: simd_float3( 1,-1, 0), color: simd_float4(0,0,1,1))
-        ]
+    var time: Float = 0
+    func update(deltaTime: Float) {
+        time += deltaTime
+        self.position.x = sin(time)
+        self.position.y = sin(time)
+        self.scale = simd_float3(repeating: cos(time))
+        self.rotation.z = cos(time)
+        updateModelConstants()
     }
     
-    private func createBuffers() {
-        vertexBuffer = Engine.device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
+    private func updateModelConstants() {
+        modelConstants.modelMatrix = self.modelMatrix
     }
-    
-    func render(renderCommandEncoder: MTLRenderCommandEncoder) {
+}
+
+extension GameObject: Renderable {
+    func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
+        renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 1)
         renderCommandEncoder.setRenderPipelineState(RenderPipelineStateLibrary.pipelineState(.basic))
-        renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+        renderCommandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
+        renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.vertexCount)
     }
 }
