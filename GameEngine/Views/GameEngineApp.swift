@@ -11,7 +11,7 @@ import SwiftUI
 struct GameEngineApp: App {
     let persistenceController = PersistenceController.shared
 
-    var body: some Scene {
+    var body: some SwiftUI.Scene {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
