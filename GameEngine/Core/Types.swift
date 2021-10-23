@@ -13,6 +13,14 @@ protocol Sizable {
 }
 
 extension Sizable {
+    static var size: Int {
+        return MemoryLayout<Self>.size
+    }
+    
+    static var stride: Int {
+        return MemoryLayout<Self>.stride
+    }
+    
     static func size(_ count: Int = 1) -> Int {
         return MemoryLayout<Self>.size * count
     }

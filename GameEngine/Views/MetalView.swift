@@ -28,8 +28,6 @@ struct MetalView: NSViewRepresentable {
     class Coordinator: NSObject, MTKViewDelegate {
         var parent: MetalView
         var mtkView: MTKView
-        var commandQueue: MTLCommandQueue!
-        var renderPipelineState: MTLRenderPipelineState!
 
         var vertices: [Vertex]!
         var vertexBuffer: MTLBuffer!
@@ -40,46 +38,15 @@ struct MetalView: NSViewRepresentable {
             
             let device = MTLCreateSystemDefaultDevice()
             mtkView.device = device
-            mtkView.clearColor = MTLClearColor(red: 0.43, green: 0.73, blue: 0.35, alpha: 1.0)
-            mtkView.colorPixelFormat = .bgra8Unorm
-            commandQueue = mtkView.device?.makeCommandQueue()
+            Engine.initialize(device: device!)
+            
+            mtkView.clearColor = Preferences.clearColor
+            mtkView.colorPixelFormat = Preferences.mainPixelFormat
             
             super.init()
             
-            createRenderPipelineState()
             createVertices()
             createBuffers()
-        }
-        
-        private func createRenderPipelineState() {
-            let library = mtkView.device?.makeDefaultLibrary()
-            let vertexFunction = library?.makeFunction(name: "basic_vertex_shader")
-            let fragmentFunction = library?.makeFunction(name: "basic_fragment_shader")
-            
-            let vertexDescriptor = MTLVertexDescriptor()
-            
-            // Position
-            vertexDescriptor.attributes[0].format = .float3
-            vertexDescriptor.attributes[0].bufferIndex = 0
-            vertexDescriptor.attributes[0].offset = 0
-            
-            vertexDescriptor.attributes[1].format = .float4
-            vertexDescriptor.attributes[1].bufferIndex = 0
-            vertexDescriptor.attributes[1].offset = simd_float3.size()
-            
-            vertexDescriptor.layouts[0].stride = Vertex.stride()
-            
-            let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
-            renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-            renderPipelineDescriptor.vertexFunction = vertexFunction
-            renderPipelineDescriptor.fragmentFunction = fragmentFunction
-            renderPipelineDescriptor.vertexDescriptor = vertexDescriptor
-            
-            do {
-                renderPipelineState = try mtkView.device?.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
-            } catch let error as NSError {
-                print(error)
-            }
         }
         
         private func createVertices() {
@@ -91,7 +58,7 @@ struct MetalView: NSViewRepresentable {
         }
         
         private func createBuffers() {
-            vertexBuffer = mtkView.device?.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
+            vertexBuffer = Engine.device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
         }
         
         func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
@@ -100,11 +67,11 @@ struct MetalView: NSViewRepresentable {
         func draw(in view: MTKView) {
             guard let drawable = mtkView.currentDrawable,
                   let renderPassDescriptor = mtkView.currentRenderPassDescriptor else { return }
-            let commandBuffer = commandQueue.makeCommandBuffer()
+            let commandBuffer = Engine.commandQueue.makeCommandBuffer()
             
             let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
-            renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
             
+            renderCommandEncoder?.setRenderPipelineState(RenderPipelineStateLibrary.pipelineState(.basic))
             renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
             renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
             
