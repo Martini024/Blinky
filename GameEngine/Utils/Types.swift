@@ -1,0 +1,31 @@
+//
+//  Types.swift
+//  Game Engine
+//
+//  Created by Martini Reinherz on 23/10/21.
+//
+
+import simd
+
+protocol Sizable {
+    static func size(_ count: Int) -> Int
+    static func stride(_ count: Int) -> Int
+}
+
+extension Sizable {
+    static func size(_ count: Int = 1) -> Int {
+        return MemoryLayout<Self>.size * count
+    }
+    
+    static func stride(_ count: Int = 1) -> Int {
+        return MemoryLayout<Self>.stride * count
+    }
+}
+
+struct Vertex: Sizable {
+    var position: simd_float3
+    var color: simd_float4
+}
+
+extension simd_float3: Sizable { }
+extension simd_float4: Sizable { }

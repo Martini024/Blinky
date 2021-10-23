@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "591A960D2715D865003A1860"
-               BuildableName = "GameEngine.app"
+               BuildableName = "Game Engine.app"
                BlueprintName = "Game Engine"
                ReferencedContainer = "container:Game Engine.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591A960D2715D865003A1860"
-            BuildableName = "GameEngine.app"
+            BuildableName = "Game Engine.app"
             BlueprintName = "Game Engine"
             ReferencedContainer = "container:Game Engine.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591A960D2715D865003A1860"
-            BuildableName = "GameEngine.app"
+            BuildableName = "Game Engine.app"
             BlueprintName = "Game Engine"
             ReferencedContainer = "container:Game Engine.xcodeproj">
          </BuildableReference>

@@ -15,6 +15,7 @@
 		591A961E2715D867003A1860 /* GameEngine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 591A961C2715D867003A1860 /* GameEngine.xcdatamodeld */; };
 		591A96292715D927003A1860 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591A96282715D927003A1860 /* MetalView.swift */; };
 		591A962B2715E612003A1860 /* MyShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 591A962A2715E612003A1860 /* MyShaders.metal */; };
+		595724652723D16E00F3929B /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595724642723D16E00F3929B /* Types.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		591A961F2715D867003A1860 /* GameEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameEngine.entitlements; sourceTree = "<group>"; };
 		591A96282715D927003A1860 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		591A962A2715E612003A1860 /* MyShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MyShaders.metal; sourceTree = "<group>"; };
+		595724642723D16E00F3929B /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		591A96102715D866003A1860 /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				595724632723D16300F3929B /* Utils */,
 				591A96262715D879003A1860 /* Views */,
 				591A96272715D886003A1860 /* Models */,
 			);
@@ -103,6 +106,14 @@
 				591A961C2715D867003A1860 /* GameEngine.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		595724632723D16300F3929B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				595724642723D16E00F3929B /* Types.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 				591A962B2715E612003A1860 /* MyShaders.metal in Sources */,
 				591A961B2715D867003A1860 /* Persistence.swift in Sources */,
 				591A96142715D866003A1860 /* ContentView.swift in Sources */,
+				595724652723D16E00F3929B /* Types.swift in Sources */,
 				591A96292715D927003A1860 /* MetalView.swift in Sources */,
 				591A96122715D866003A1860 /* GameEngineApp.swift in Sources */,
 				591A961E2715D867003A1860 /* GameEngine.xcdatamodeld in Sources */,

@@ -56,10 +56,24 @@ struct MetalView: NSViewRepresentable {
             let vertexFunction = library?.makeFunction(name: "basic_vertex_shader")
             let fragmentFunction = library?.makeFunction(name: "basic_fragment_shader")
             
+            let vertexDescriptor = MTLVertexDescriptor()
+            
+            // Position
+            vertexDescriptor.attributes[0].format = .float3
+            vertexDescriptor.attributes[0].bufferIndex = 0
+            vertexDescriptor.attributes[0].offset = 0
+            
+            vertexDescriptor.attributes[1].format = .float4
+            vertexDescriptor.attributes[1].bufferIndex = 0
+            vertexDescriptor.attributes[1].offset = simd_float3.size()
+            
+            vertexDescriptor.layouts[0].stride = Vertex.stride()
+            
             let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
             renderPipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
             renderPipelineDescriptor.vertexFunction = vertexFunction
             renderPipelineDescriptor.fragmentFunction = fragmentFunction
+            renderPipelineDescriptor.vertexDescriptor = vertexDescriptor
             
             do {
                 renderPipelineState = try mtkView.device?.makeRenderPipelineState(descriptor: renderPipelineDescriptor)
@@ -70,13 +84,14 @@ struct MetalView: NSViewRepresentable {
         
         private func createVertices() {
             vertices = [
-                Vertex(position: SIMD3<Float>( 0, 1, 0), color: SIMD4<Float>(1,0,0,1)),
-                Vertex(position: SIMD3<Float>(-1,-1, 0), color: SIMD4<Float>(0,1,0,1)),
-                Vertex(position: SIMD3<Float>( 1,-1, 0), color: SIMD4<Float>(0,0,1,1))
+                Vertex(position: simd_float3( 0, 1, 0), color: simd_float4(1,0,0,1)),
+                Vertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,1,0,1)),
+                Vertex(position: simd_float3( 1,-1, 0), color: simd_float4(0,0,1,1))
             ]
         }
+        
         private func createBuffers() {
-            vertexBuffer = mtkView.device?.makeBuffer(bytes: vertices, length: MemoryLayout<Vertex>.stride * vertices.count, options: [])
+            vertexBuffer = mtkView.device?.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count), options: [])
         }
         
         func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
@@ -98,9 +113,4 @@ struct MetalView: NSViewRepresentable {
             commandBuffer?.commit()
         }
     }
-}
-
-struct Vertex {
-    var position: SIMD3<Float>
-    var color: SIMD4<Float>
 }
