@@ -8,10 +8,19 @@
 import MetalKit
 
 class Renderer: NSObject {
-    var scene = SandboxScene()
+    public static var screenSize = simd_float2(repeating: 0)
+    
+    init(_ frame: CGSize) {
+        super.init()
+        updateScreenSize(frame)
+    }
 }
 
 extension Renderer: MTKViewDelegate {
+    
+    public func updateScreenSize(_ frame: CGSize) {
+        Renderer.screenSize = simd_float2(Float(frame.width), Float(frame.height))
+    }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
     }

@@ -32,6 +32,9 @@
 		59572488272429DD00F3929B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59572487272429DD00F3929B /* Scene.swift */; };
 		5957248A27242B0000F3929B /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957248927242B0000F3929B /* SandboxScene.swift */; };
 		5957248E27242D2C00F3929B /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957248D27242D2C00F3929B /* SceneManager.swift */; };
+		595B479D2728423D00BC2F02 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B479C2728423D00BC2F02 /* Keyboard.swift */; };
+		595B479F2728427B00BC2F02 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B479E2728427B00BC2F02 /* KeyCode.swift */; };
+		595B47A12728473200BC2F02 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A02728473200BC2F02 /* Mouse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		59572487272429DD00F3929B /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		5957248927242B0000F3929B /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
 		5957248D27242D2C00F3929B /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		595B479C2728423D00BC2F02 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		595B479E2728427B00BC2F02 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		595B47A02728473200BC2F02 /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,7 @@
 				595724642723D16E00F3929B /* Types.swift */,
 				595724682723D71C00F3929B /* Engine.swift */,
 				5957246A2723D8E400F3929B /* Preferences.swift */,
+				595B479B2728421A00BC2F02 /* Input */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -226,6 +233,16 @@
 				5957248D27242D2C00F3929B /* SceneManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		595B479B2728421A00BC2F02 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				595B479C2728423D00BC2F02 /* Keyboard.swift */,
+				595B479E2728427B00BC2F02 /* KeyCode.swift */,
+				595B47A02728473200BC2F02 /* Mouse.swift */,
+			);
+			path = Input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,12 +325,15 @@
 				595724732723E0D600F3929B /* RenderPipelineStateLibrary.swift in Sources */,
 				591A96142715D866003A1860 /* ContentView.swift in Sources */,
 				5957246F2723DDB100F3929B /* VertexDescriptorLibrary.swift in Sources */,
+				595B479D2728423D00BC2F02 /* Keyboard.swift in Sources */,
 				595724652723D16E00F3929B /* Types.swift in Sources */,
 				591A96292715D927003A1860 /* MetalView.swift in Sources */,
+				595B47A12728473200BC2F02 /* Mouse.swift in Sources */,
 				59572488272429DD00F3929B /* Scene.swift in Sources */,
 				595724692723D71C00F3929B /* Engine.swift in Sources */,
 				591A96122715D866003A1860 /* GameEngineApp.swift in Sources */,
 				591A961E2715D867003A1860 /* GameEngine.xcdatamodeld in Sources */,
+				595B479F2728427B00BC2F02 /* KeyCode.swift in Sources */,
 				5957248E27242D2C00F3929B /* SceneManager.swift in Sources */,
 				595724712723DFD700F3929B /* RenderPipelineDescriptorLibrary.swift in Sources */,
 				595724782723E67900F3929B /* Renderer.swift in Sources */,
