@@ -32,6 +32,7 @@ struct MetalView: NSViewRepresentable {
         Engine.initialize(device: device!)
         mtkView.clearColor = Preferences.clearColor
         mtkView.colorPixelFormat = Preferences.mainPixelFormat
+        mtkView.depthStencilPixelFormat = Preferences.mainDepthPixelFormat
         return Renderer(frame)
     }
 }

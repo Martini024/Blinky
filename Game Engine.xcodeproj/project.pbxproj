@@ -15,6 +15,8 @@
 		591A961E2715D867003A1860 /* GameEngine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 591A961C2715D867003A1860 /* GameEngine.xcdatamodeld */; };
 		591A96292715D927003A1860 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591A96282715D927003A1860 /* MetalView.swift */; };
 		591A962B2715E612003A1860 /* MyShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 591A962A2715E612003A1860 /* MyShaders.metal */; };
+		5941F28D272988F6008151A1 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5941F28C272988F6008151A1 /* Cube.swift */; };
+		5941F28F27298C23008151A1 /* DepthStencilStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5941F28E27298C23008151A1 /* DepthStencilStateLibrary.swift */; };
 		595724652723D16E00F3929B /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595724642723D16E00F3929B /* Types.swift */; };
 		595724692723D71C00F3929B /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595724682723D71C00F3929B /* Engine.swift */; };
 		5957246B2723D8E400F3929B /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5957246A2723D8E400F3929B /* Preferences.swift */; };
@@ -51,6 +53,8 @@
 		591A961F2715D867003A1860 /* GameEngine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameEngine.entitlements; sourceTree = "<group>"; };
 		591A96282715D927003A1860 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		591A962A2715E612003A1860 /* MyShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MyShaders.metal; sourceTree = "<group>"; };
+		5941F28C272988F6008151A1 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		5941F28E27298C23008151A1 /* DepthStencilStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthStencilStateLibrary.swift; sourceTree = "<group>"; };
 		595724642723D16E00F3929B /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		595724682723D71C00F3929B /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		5957246A2723D8E400F3929B /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				595724702723DFD700F3929B /* RenderPipelineDescriptorLibrary.swift */,
 				595724722723E0D600F3929B /* RenderPipelineStateLibrary.swift */,
 				595724792724096600F3929B /* MeshLibrary.swift */,
+				5941F28E27298C23008151A1 /* DepthStencilStateLibrary.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			children = (
 				5957247B27240C3200F3929B /* Pointer.swift */,
 				595724752723E4C500F3929B /* GameObject.swift */,
+				5941F28C272988F6008151A1 /* Cube.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				5957246F2723DDB100F3929B /* VertexDescriptorLibrary.swift in Sources */,
 				595B479D2728423D00BC2F02 /* Keyboard.swift in Sources */,
 				595724652723D16E00F3929B /* Types.swift in Sources */,
+				5941F28F27298C23008151A1 /* DepthStencilStateLibrary.swift in Sources */,
 				591A96292715D927003A1860 /* MetalView.swift in Sources */,
 				595B47A12728473200BC2F02 /* Mouse.swift in Sources */,
 				59572488272429DD00F3929B /* Scene.swift in Sources */,
@@ -358,6 +365,7 @@
 				595724712723DFD700F3929B /* RenderPipelineDescriptorLibrary.swift in Sources */,
 				595724782723E67900F3929B /* Renderer.swift in Sources */,
 				5957247A2724096600F3929B /* MeshLibrary.swift in Sources */,
+				5941F28D272988F6008151A1 /* Cube.swift in Sources */,
 				5957247C27240C3200F3929B /* Pointer.swift in Sources */,
 				5957246B2723D8E400F3929B /* Preferences.swift in Sources */,
 				595724842724149D00F3929B /* Math.swift in Sources */,

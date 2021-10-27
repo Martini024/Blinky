@@ -9,6 +9,9 @@ import MetalKit
 
 class Renderer: NSObject {
     public static var screenSize = simd_float2(repeating: 0)
+    public static var aspectRatio: Float {
+        screenSize.x / screenSize.y
+    }
     
     init(_ frame: CGSize) {
         super.init()
