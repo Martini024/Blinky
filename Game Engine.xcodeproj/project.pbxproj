@@ -41,6 +41,8 @@
 		595B47A42728555C00BC2F02 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A32728555C00BC2F02 /* Camera.swift */; };
 		595B47A62728567300BC2F02 /* DebugCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A52728567300BC2F02 /* DebugCamera.swift */; };
 		595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A72728592E00BC2F02 /* CameraManager.swift */; };
+		59EDD04A272AD75000D20C58 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD049272AD75000D20C58 /* InstancedGameObject.swift */; };
+		59EDD04C272AE0E800D20C58 /* CubeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD04B272AE0E800D20C58 /* CubeCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		595B47A32728555C00BC2F02 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		595B47A52728567300BC2F02 /* DebugCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCamera.swift; sourceTree = "<group>"; };
 		595B47A72728592E00BC2F02 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		59EDD049272AD75000D20C58 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
+		59EDD04B272AE0E800D20C58 /* CubeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,8 +239,10 @@
 		59572485272429B400F3929B /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
-				5957247B27240C3200F3929B /* Pointer.swift */,
 				595724752723E4C500F3929B /* GameObject.swift */,
+				59EDD049272AD75000D20C58 /* InstancedGameObject.swift */,
+				59EDD04B272AE0E800D20C58 /* CubeCollection.swift */,
+				5957247B27240C3200F3929B /* Pointer.swift */,
 				5941F28C272988F6008151A1 /* Cube.swift */,
 			);
 			path = GameObjects;
@@ -357,6 +363,7 @@
 				591A961B2715D867003A1860 /* Persistence.swift in Sources */,
 				595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */,
 				5941F29227299663008151A1 /* ColorUtil.swift in Sources */,
+				59EDD04C272AE0E800D20C58 /* CubeCollection.swift in Sources */,
 				5957248A27242B0000F3929B /* SandboxScene.swift in Sources */,
 				595724732723E0D600F3929B /* RenderPipelineStateLibrary.swift in Sources */,
 				595B47A62728567300BC2F02 /* DebugCamera.swift in Sources */,
@@ -375,6 +382,7 @@
 				595B479F2728427B00BC2F02 /* KeyCode.swift in Sources */,
 				5957248E27242D2C00F3929B /* SceneManager.swift in Sources */,
 				595724712723DFD700F3929B /* RenderPipelineDescriptorLibrary.swift in Sources */,
+				59EDD04A272AD75000D20C58 /* InstancedGameObject.swift in Sources */,
 				595724782723E67900F3929B /* Renderer.swift in Sources */,
 				5957247A2724096600F3929B /* MeshLibrary.swift in Sources */,
 				5941F28D272988F6008151A1 /* Cube.swift in Sources */,

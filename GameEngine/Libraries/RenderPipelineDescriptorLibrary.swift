@@ -9,6 +9,7 @@ import MetalKit
 
 enum RenderPipelineDescriptorType {
     case basic
+    case instanced
 }
 
 class RenderPipelineDescriptorLibrary {
@@ -20,6 +21,7 @@ class RenderPipelineDescriptorLibrary {
     
     private static func createDefaultRenderPipelineDescriptor() {
         renderPipelineDescriptors.updateValue(BasicRenderPipelineDescriptor(), forKey: .basic)
+        renderPipelineDescriptors.updateValue(InstancedRenderPipelineDescriptor(), forKey: .instanced)
     }
     
     public static func descriptor(_ renderPipelineDescriptorType: RenderPipelineDescriptorType) -> MTLRenderPipelineDescriptor {
@@ -42,6 +44,21 @@ public struct BasicRenderPipelineDescriptor: RenderPipelineDescriptor {
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preferences.mainPixelFormat
         renderPipelineDescriptor.depthAttachmentPixelFormat = Preferences.mainDepthPixelFormat
         renderPipelineDescriptor.vertexFunction = ShaderLibrary.vertex(.basic)
+        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.fragment(.basic)
+        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.descriptor(.basic)
+    }
+}
+
+public struct InstancedRenderPipelineDescriptor: RenderPipelineDescriptor {
+    var name: String = "Instanced Vertext Descriptor"
+    var renderPipelineDescriptor: MTLRenderPipelineDescriptor!
+    
+    init() {
+        renderPipelineDescriptor = MTLRenderPipelineDescriptor()
+        
+        renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preferences.mainPixelFormat
+        renderPipelineDescriptor.depthAttachmentPixelFormat = Preferences.mainDepthPixelFormat
+        renderPipelineDescriptor.vertexFunction = ShaderLibrary.vertex(.instanced)
         renderPipelineDescriptor.fragmentFunction = ShaderLibrary.fragment(.basic)
         renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.descriptor(.basic)
     }

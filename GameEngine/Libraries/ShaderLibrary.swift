@@ -9,6 +9,7 @@ import MetalKit
 
 enum VertexShaderType {
     case basic
+    case instanced
 }
 
 enum FragmentShaderType {
@@ -29,6 +30,7 @@ class ShaderLibrary {
     
     private static func createDefaultShaders() {
         vertexShaders.updateValue(BasicVertexShader(), forKey: .basic)
+        vertexShaders.updateValue(InstancedVertexShader(), forKey: .instanced)
         fragmentShaders.updateValue(BasicFragmentShader(), forKey: .basic)
     }
     
@@ -50,6 +52,16 @@ protocol Shader {
 public struct BasicVertexShader: Shader {
     public var name: String = "Basic Vertex Shader"
     public var functionName: String = "basic_vertex_shader"
+    public var function: MTLFunction!
+    init() {
+        function = ShaderLibrary.defaultLibrary.makeFunction(name: functionName)
+        function?.label = name
+    }
+}
+
+public struct InstancedVertexShader: Shader {
+    public var name: String = "Instanced Vertex Shader"
+    public var functionName: String = "instanced_vertex_shader"
     public var function: MTLFunction!
     init() {
         function = ShaderLibrary.defaultLibrary.makeFunction(name: functionName)
