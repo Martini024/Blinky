@@ -16,11 +16,12 @@ class GameObject: Node {
     private var _mesh: Mesh!
     
     init(meshType: MeshType) {
-        _mesh = MeshLibrary.mesh(meshType)
+        _mesh = Entities.meshes[meshType]
     }
     
     override func update(deltaTime: Float) {
         updateModelConstants()
+        super.update(deltaTime: deltaTime)
     }
     
     private func updateModelConstants() {

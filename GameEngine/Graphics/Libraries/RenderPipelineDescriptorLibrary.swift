@@ -43,9 +43,9 @@ public struct BasicRenderPipelineDescriptor: RenderPipelineDescriptor {
         
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preferences.mainPixelFormat
         renderPipelineDescriptor.depthAttachmentPixelFormat = Preferences.mainDepthPixelFormat
-        renderPipelineDescriptor.vertexFunction = ShaderLibrary.vertex(.basic)
-        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.fragment(.basic)
-        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.descriptor(.basic)
+        renderPipelineDescriptor.vertexFunction = Graphics.vertexShaders[.basic]
+        renderPipelineDescriptor.fragmentFunction = Graphics.fragmentShaders[.basic]
+        renderPipelineDescriptor.vertexDescriptor = Graphics.vertexDescriptors[.basic]
     }
 }
 
@@ -58,8 +58,8 @@ public struct InstancedRenderPipelineDescriptor: RenderPipelineDescriptor {
         
         renderPipelineDescriptor.colorAttachments[0].pixelFormat = Preferences.mainPixelFormat
         renderPipelineDescriptor.depthAttachmentPixelFormat = Preferences.mainDepthPixelFormat
-        renderPipelineDescriptor.vertexFunction = ShaderLibrary.vertex(.instanced)
-        renderPipelineDescriptor.fragmentFunction = ShaderLibrary.fragment(.basic)
-        renderPipelineDescriptor.vertexDescriptor = VertexDescriptorLibrary.descriptor(.basic)
+        renderPipelineDescriptor.vertexFunction = Graphics.vertexShaders[.instanced]
+        renderPipelineDescriptor.fragmentFunction = Graphics.fragmentShaders[.basic]
+        renderPipelineDescriptor.vertexDescriptor = Graphics.vertexDescriptors[.basic]
     }
 }

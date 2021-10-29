@@ -10,16 +10,21 @@ import Metal
 class Engine {
     public static var device: MTLDevice!
     public static var commandQueue: MTLCommandQueue!
+    public static var defaultLibrary: MTLLibrary!
     
     public static func initialize(device: MTLDevice) {
         self.device = device
         self.commandQueue = device.makeCommandQueue()
-        ShaderLibrary.initialize()
-        VertexDescriptorLibrary.initialize()
+        self.defaultLibrary = device.makeDefaultLibrary()
+        
+        Graphics.initialize()
+        
         DepthStencilStateLibrary.initialize()
         RenderPipelineDescriptorLibrary.initialize()
         RenderPipelineStateLibrary.initialize()
-        MeshLibrary.initialze()
+        
+        Entities.initialize()
+        
         SceneManager.initialize(Preferences.startingSceneType)
     }
 }

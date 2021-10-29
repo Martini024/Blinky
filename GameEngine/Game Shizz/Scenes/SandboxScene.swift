@@ -10,24 +10,17 @@ import MetalKit
 class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
+    var quadrangle = Quandrangle()
     
     override func buildScene() {
         addCamera(debugCamera)
         
-        debugCamera.position.z = 100
+        debugCamera.position.z = 5
         
-        addCubeCollection()
+        addChild(quadrangle)
     }
     
-    var cubeCollection: CubeCollection!
-    func addCubeCollection() {
-        let count = 20
-        cubeCollection = CubeCollection(cubesWide: count, cubesHigh: count, cubesBack: count)
-        addChild(cubeCollection)
-    }
-    
-    override func update(deltaTime: Float) {
-        cubeCollection.rotation.z += deltaTime
-        super.update(deltaTime: deltaTime)
+    override func doUpdate() {
+        quadrangle.position.x = cos(GameTime.totalGameTime)
     }
 }
