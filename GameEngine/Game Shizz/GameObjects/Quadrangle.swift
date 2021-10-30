@@ -11,7 +11,7 @@ class Quandrangle: GameObject {
     init() {
         super.init(meshType: .quadrangle)
         let cube = Cube()
-        cube.scale = simd_float3(repeating: 0.3)
+        cube.setScale(simd_float3(repeating: 0.3))
         addChild(cube)
     }
 }

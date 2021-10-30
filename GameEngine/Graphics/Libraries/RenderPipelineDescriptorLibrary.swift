@@ -12,20 +12,17 @@ enum RenderPipelineDescriptorType {
     case instanced
 }
 
-class RenderPipelineDescriptorLibrary {
-    private static var renderPipelineDescriptors: [RenderPipelineDescriptorType: RenderPipelineDescriptor] = [:]
+class RenderPipelineDescriptorLibrary: Library<RenderPipelineDescriptorType, MTLRenderPipelineDescriptor> {
+    private var _library: [RenderPipelineDescriptorType: RenderPipelineDescriptor] = [:]
     
-    public static func initialize() {
-        createDefaultRenderPipelineDescriptor()
+    
+    override func fillLibrary() {
+        _library.updateValue(BasicRenderPipelineDescriptor(), forKey: .basic)
+        _library.updateValue(InstancedRenderPipelineDescriptor(), forKey: .instanced)
     }
     
-    private static func createDefaultRenderPipelineDescriptor() {
-        renderPipelineDescriptors.updateValue(BasicRenderPipelineDescriptor(), forKey: .basic)
-        renderPipelineDescriptors.updateValue(InstancedRenderPipelineDescriptor(), forKey: .instanced)
-    }
-    
-    public static func descriptor(_ renderPipelineDescriptorType: RenderPipelineDescriptorType) -> MTLRenderPipelineDescriptor {
-        return renderPipelineDescriptors[renderPipelineDescriptorType]!.renderPipelineDescriptor
+    override subscript(type: RenderPipelineDescriptorType) -> MTLRenderPipelineDescriptor {
+        return _library[type]!.renderPipelineDescriptor
     }
 }
 

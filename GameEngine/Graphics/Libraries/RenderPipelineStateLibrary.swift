@@ -12,48 +12,26 @@ enum RenderPipelineStateType {
     case instanced
 }
 
-class RenderPipelineStateLibrary {
-    private static var renderPipelineStates: [RenderPipelineStateType: RenderPipelineState] = [:]
+class RenderPipelineStateLibrary: Library<RenderPipelineStateType, MTLRenderPipelineState> {
+    private var _library: [RenderPipelineStateType: RenderPipelineState] = [:]
     
-    public static func initialize() {
-        createDefaultRenderPipelineState()
+    override func fillLibrary() {
+        _library.updateValue(RenderPipelineState(.basic), forKey: .basic)
+        _library.updateValue(RenderPipelineState(.instanced), forKey: .instanced)
     }
     
-    private static func createDefaultRenderPipelineState() { 
-        renderPipelineStates.updateValue(BasicRenderPipelineState(), forKey: .basic)
-        renderPipelineStates.updateValue(InstancedRenderPipelineState(), forKey: .instanced)
-    }
-    
-    public static func pipelineState(_ renderPipelineStateType: RenderPipelineStateType) -> MTLRenderPipelineState {
-        return renderPipelineStates[renderPipelineStateType]!.renderPipelineState
+    override subscript(type: RenderPipelineStateType) -> MTLRenderPipelineState {
+        return _library[type]!.renderPipelineState
     }
 }
 
-protocol RenderPipelineState {
-    var name: String { get }
-    var renderPipelineState: MTLRenderPipelineState! { get }
-}
-
-public struct BasicRenderPipelineState: RenderPipelineState {
-    var name: String = "Basic Vertext Descriptor"
+class RenderPipelineState {
     var renderPipelineState: MTLRenderPipelineState!
-    init() {
+    init(_ renderPipelineDescriptorType: RenderPipelineDescriptorType) {
         do {
-            renderPipelineState = try Engine.device.makeRenderPipelineState(descriptor: RenderPipelineDescriptorLibrary.descriptor(.basic))
+            renderPipelineState = try Engine.device.makeRenderPipelineState(descriptor: Graphics.renderPipelineDescriptors[.basic])
         } catch let error as NSError {
-            print("ERROR::CREATE::RENDER_PIPELINE_STATE::__\(name)__::\(error)")
-        }
-    }
-}
-
-public struct InstancedRenderPipelineState: RenderPipelineState {
-    var name: String = "Instanced Vertext Descriptor"
-    var renderPipelineState: MTLRenderPipelineState!
-    init() {
-        do {
-            renderPipelineState = try Engine.device.makeRenderPipelineState(descriptor: RenderPipelineDescriptorLibrary.descriptor(.instanced))
-        } catch let error as NSError {
-            print("ERROR::CREATE::RENDER_PIPELINE_STATE::__\(name)__::\(error)")
+            print("ERROR::CREATE::RENDER_PIPELINE_STATE::__::\(error)")
         }
     }
 }

@@ -12,9 +12,8 @@ class Cube: GameObject {
         super.init(meshType: .cube)
     }
     
-    override func update(deltaTime: Float) {
-        self.rotation.x += (Float.random(in: 0...1) * deltaTime)
-        self.rotation.y += (Float.random(in: 0...1) * deltaTime)
-        super.update(deltaTime: deltaTime)
+    override func doUpdate() {
+        self.rotateX(GameTime.deltaTime)
+        self.rotateY(GameTime.deltaTime)
     }
 }

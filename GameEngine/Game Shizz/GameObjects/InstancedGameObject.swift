@@ -51,8 +51,8 @@ class InstancedGameObject: Node {
 
 extension InstancedGameObject: Renderable {
     func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-        renderCommandEncoder.setRenderPipelineState(RenderPipelineStateLibrary.pipelineState(.instanced))
-        renderCommandEncoder.setDepthStencilState(DepthStencilStateLibrary.depthStencilState(.less))
+        renderCommandEncoder.setRenderPipelineState(Graphics.renderPipelineStates[.instanced])
+        renderCommandEncoder.setDepthStencilState(Graphics.depthStencilStates[.less])
         
         // Vertex Shader
         renderCommandEncoder.setVertexBuffer(_modelConstantBuffer, offset: 0, index: 2)

@@ -29,16 +29,20 @@ extension Renderer: MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
-        guard let drawable = view.currentDrawable,
-              let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
+        guard let renderPassDescriptor = view.currentRenderPassDescriptor else { return }
+        
         let commandBuffer = Engine.commandQueue.makeCommandBuffer()
+        commandBuffer?.label = "My Command Buffer"
         
         let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
+        renderCommandEncoder?.label = "Fist Render Command Encoder"
         
+        renderCommandEncoder?.pushDebugGroup("Starting Render")
         SceneManager.tickScene(renderCommandEncoder: renderCommandEncoder!, deltaTime: 1 / Float(view.preferredFramesPerSecond))
+        renderCommandEncoder?.popDebugGroup()
         
         renderCommandEncoder?.endEncoding()
-        commandBuffer?.present(drawable)
+        commandBuffer?.present(view.currentDrawable!)
         commandBuffer?.commit()
     }
 }

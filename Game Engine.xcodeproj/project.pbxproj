@@ -48,6 +48,7 @@
 		595B47A42728555C00BC2F02 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A32728555C00BC2F02 /* Camera.swift */; };
 		595B47A62728567300BC2F02 /* DebugCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A52728567300BC2F02 /* DebugCamera.swift */; };
 		595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A72728592E00BC2F02 /* CameraManager.swift */; };
+		5991467C272DAF7C006E5C09 /* Shared.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5991467B272DAF7C006E5C09 /* Shared.metal */; };
 		59EDD04A272AD75000D20C58 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD049272AD75000D20C58 /* InstancedGameObject.swift */; };
 		59EDD04C272AE0E800D20C58 /* CubeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD04B272AE0E800D20C58 /* CubeCollection.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		595B47A32728555C00BC2F02 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		595B47A52728567300BC2F02 /* DebugCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCamera.swift; sourceTree = "<group>"; };
 		595B47A72728592E00BC2F02 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		5991467B272DAF7C006E5C09 /* Shared.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shared.metal; sourceTree = "<group>"; };
 		59EDD049272AD75000D20C58 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
 		59EDD04B272AE0E800D20C58 /* CubeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,10 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				595724632723D16300F3929B /* Core */,
-				5957FA06272C1BEB0088D25B /* Graphics */,
 				5957FA05272C1BE00088D25B /* Entities */,
+				5957FA06272C1BEB0088D25B /* Graphics */,
 				5957248C27242D0D00F3929B /* Managers */,
-				595724672723D64E00F3929B /* Shaders */,
 				595724742723E49C00F3929B /* Game Shizz */,
 				591A96262715D879003A1860 /* Views */,
 				591A96272715D886003A1860 /* Models */,
@@ -205,6 +206,7 @@
 		595724672723D64E00F3929B /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				5991467B272DAF7C006E5C09 /* Shared.metal */,
 				591A962A2715E612003A1860 /* MyShaders.metal */,
 			);
 			path = Shaders;
@@ -214,9 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				5957247D27240D9500F3929B /* Node.swift */,
+				595B47A22728554A00BC2F02 /* Cameras */,
 				59572486272429C900F3929B /* Scenes */,
 				59572485272429B400F3929B /* GameObjects */,
-				595B47A22728554A00BC2F02 /* Cameras */,
 				5957247F27240E3700F3929B /* Protocols */,
 			);
 			path = "Game Shizz";
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				5957FA0E272C1D8B0088D25B /* Libraries */,
+				595724672723D64E00F3929B /* Shaders */,
 				5957FA07272C1C100088D25B /* Graphics.swift */,
 			);
 			path = Graphics;
@@ -448,6 +451,7 @@
 				5957247C27240C3200F3929B /* Pointer.swift in Sources */,
 				5957246B2723D8E400F3929B /* Preferences.swift in Sources */,
 				595724842724149D00F3929B /* Math.swift in Sources */,
+				5991467C272DAF7C006E5C09 /* Shared.metal in Sources */,
 				5957FA12272C25DA0088D25B /* VertexShaderLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

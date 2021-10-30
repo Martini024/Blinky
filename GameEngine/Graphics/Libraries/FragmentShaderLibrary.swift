@@ -18,7 +18,7 @@ class FragmentShaderLibrary: Library<FragmentShaderType, MTLFunction> {
         _library.updateValue(Shader(name: "Basic Fragment Shader", functionName: "basic_fragment_shader"), forKey: .basic)
     }
     
-    override subscript(type: FragmentShaderType) -> MTLFunction? {
+    override subscript(type: FragmentShaderType) -> MTLFunction {
         return (_library[type]?.function)!
     }
 }

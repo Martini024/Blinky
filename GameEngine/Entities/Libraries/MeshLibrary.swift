@@ -22,7 +22,7 @@ class MeshLibrary: Library<MeshType, Mesh> {
         _library.updateValue(CubeMesh(), forKey: .cube)
     }
     
-    override subscript(type: MeshType) -> Mesh? {
+    override subscript(type: MeshType) -> Mesh {
         return _library[type]!
     }
 }

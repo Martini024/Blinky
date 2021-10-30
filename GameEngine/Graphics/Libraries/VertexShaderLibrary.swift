@@ -20,7 +20,7 @@ class VertexShaderLibrary: Library<VertexShaderType, MTLFunction> {
         _library.updateValue(Shader(name: "Instanced Vertex Shader", functionName: "instanced_vertex_shader"), forKey: .instanced)
     }
     
-    override subscript(type: VertexShaderType) -> MTLFunction? {
-        return (_library[type]?.function)!
+    override subscript(type: VertexShaderType) -> MTLFunction {
+        return _library[type]!.function
     }
 }

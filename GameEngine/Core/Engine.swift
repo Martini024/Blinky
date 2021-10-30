@@ -19,10 +19,6 @@ class Engine {
         
         Graphics.initialize()
         
-        DepthStencilStateLibrary.initialize()
-        RenderPipelineDescriptorLibrary.initialize()
-        RenderPipelineStateLibrary.initialize()
-        
         Entities.initialize()
         
         SceneManager.initialize(Preferences.startingSceneType)

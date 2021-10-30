@@ -15,12 +15,12 @@ class SandboxScene: Scene {
     override func buildScene() {
         addCamera(debugCamera)
         
-        debugCamera.position.z = 5
+        debugCamera.setPositionZ(5)
         
         addChild(quadrangle)
     }
     
     override func doUpdate() {
-        quadrangle.position.x = cos(GameTime.totalGameTime)
+        quadrangle.setPositionX(cos(GameTime.totalGameTime))
     }
 }

@@ -8,27 +8,30 @@
 import MetalKit
 
 class DebugCamera: Camera {
-    var cameraType: CameraType = .debug
-    var position: simd_float3 = simd_float3(repeating: 0)
-    var projectionMatrix: matrix_float4x4 {
+    
+    override var projectionMatrix: matrix_float4x4 {
         return matrix_float4x4.perspective(degreesFov: 45, aspectRatio: Renderer.aspectRatio, near: 0.1, far: 1000)
     }
     
-    func update(deltaTime: Float) {
+    init() {
+        super.init(cameraType: .debug)
+    }
+    
+    override func doUpdate() {
         if (Keyboard.isKeyPressed(.leftArrow)) {
-            self.position.x += deltaTime
+            self.moveX(GameTime.deltaTime)
         }
         
         if (Keyboard.isKeyPressed(.rightArrow)) {
-            self.position.x -= deltaTime
+            self.moveX(-GameTime.deltaTime)
         }
         
         if (Keyboard.isKeyPressed(.upArrow)) {
-            self.position.y -= deltaTime
+            self.moveY(-GameTime.deltaTime)
         }
         
         if (Keyboard.isKeyPressed(.downArrow)) {
-            self.position.y += deltaTime
+            self.moveY(GameTime.deltaTime)
         }
     }
 }
