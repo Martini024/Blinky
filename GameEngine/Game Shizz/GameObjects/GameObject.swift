@@ -19,9 +19,9 @@ class GameObject: Node {
         _mesh = Entities.meshes[meshType]
     }
     
-    override func update(deltaTime: Float) {
+    override func update() {
         updateModelConstants()
-        super.update(deltaTime: deltaTime)
+        super.update()
     }
     
     private func updateModelConstants() {

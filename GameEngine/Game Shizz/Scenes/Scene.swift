@@ -32,12 +32,12 @@ class Scene: Node {
     }
     
     func updateCameras(deltaTime: Float) {
-        cameraManager.update(deltaTime: deltaTime)
+        cameraManager.update()
     }
     
-    override func update(deltaTime: Float) {
+    override func update() {
         updateSceneConstants()
-        super.update(deltaTime: deltaTime)
+        super.update()
     }
     
     override func render(renderCommandEncoder: MTLRenderCommandEncoder) {

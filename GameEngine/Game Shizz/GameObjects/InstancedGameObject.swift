@@ -35,9 +35,9 @@ class InstancedGameObject: Node {
         _modelConstantBuffer = Engine.device.makeBuffer(length: ModelConstants.stride(instanceCount), options: [])
     }
     
-    override func update(deltaTime: Float) {
+    override func update() {
         updteModelConstantsBuffer()
-        super.update(deltaTime: deltaTime)
+        super.update()
     }
     
     private func updteModelConstantsBuffer() {

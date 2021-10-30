@@ -42,11 +42,11 @@ class Node {
     
     func doUpdate() { }
     
-    func update(deltaTime: Float) {
+    func update() {
         doUpdate()
         for child in children {
             child.parentModelMatrix = self.modelMatrix
-            child.update(deltaTime: deltaTime)
+            child.update()
         }
     }
     
