@@ -55,6 +55,10 @@
 		595F387B272ECECB008884E1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 595F3878272ECECB008884E1 /* cruiser.bmp */; };
 		595F387C272ECECB008884E1 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 595F3879272ECECB008884E1 /* cruiser.mtl */; };
 		595F387E272ED08F008884E1 /* Cruiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F387D272ED08F008884E1 /* Cruiser.swift */; };
+		595F3880272ED758008884E1 /* LightObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F387F272ED758008884E1 /* LightObject.swift */; };
+		595F3882272ED88E008884E1 /* LightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F3881272ED88E008884E1 /* LightManager.swift */; };
+		595F3884272EDA1D008884E1 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F3883272EDA1D008884E1 /* Sun.swift */; };
+		595F3886272EDAE0008884E1 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 595F3885272EDAE0008884E1 /* sphere.obj */; };
 		5991467C272DAF7C006E5C09 /* Shared.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5991467B272DAF7C006E5C09 /* Shared.metal */; };
 		5991467E272DB37C006E5C09 /* InstancedShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5991467D272DB37C006E5C09 /* InstancedShader.metal */; };
 		59EDD04A272AD75000D20C58 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD049272AD75000D20C58 /* InstancedGameObject.swift */; };
@@ -112,6 +116,10 @@
 		595F3878272ECECB008884E1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
 		595F3879272ECECB008884E1 /* cruiser.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl; sourceTree = "<group>"; };
 		595F387D272ED08F008884E1 /* Cruiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruiser.swift; sourceTree = "<group>"; };
+		595F387F272ED758008884E1 /* LightObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightObject.swift; sourceTree = "<group>"; };
+		595F3881272ED88E008884E1 /* LightManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightManager.swift; sourceTree = "<group>"; };
+		595F3883272EDA1D008884E1 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		595F3885272EDAE0008884E1 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		5991467B272DAF7C006E5C09 /* Shared.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shared.metal; sourceTree = "<group>"; };
 		5991467D272DB37C006E5C09 /* InstancedShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = InstancedShader.metal; sourceTree = "<group>"; };
 		59EDD049272AD75000D20C58 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
@@ -263,12 +271,14 @@
 			isa = PBXGroup;
 			children = (
 				595724752723E4C500F3929B /* GameObject.swift */,
+				595F387F272ED758008884E1 /* LightObject.swift */,
 				59EDD049272AD75000D20C58 /* InstancedGameObject.swift */,
+				595F3883272EDA1D008884E1 /* Sun.swift */,
+				595F387D272ED08F008884E1 /* Cruiser.swift */,
 				59EDD04B272AE0E800D20C58 /* CubeCollection.swift */,
 				5957247B27240C3200F3929B /* Pointer.swift */,
 				5941F28C272988F6008151A1 /* Cube.swift */,
 				5957FA00272C16F40088D25B /* Quadrangle.swift */,
-				595F387D272ED08F008884E1 /* Cruiser.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -287,6 +297,7 @@
 			children = (
 				5957248D27242D2C00F3929B /* SceneManager.swift */,
 				595B47A72728592E00BC2F02 /* CameraManager.swift */,
+				595F3881272ED88E008884E1 /* LightManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 		595F386D272E7F8D008884E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				595F3885272EDAE0008884E1 /* sphere.obj */,
 				595F3874272ECE26008884E1 /* Cruiser */,
 				595F3875272ECEB0008884E1 /* PartyPirateParot.png */,
 			);
@@ -439,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595F3886272EDAE0008884E1 /* sphere.obj in Resources */,
 				591A96192715D867003A1860 /* Preview Assets.xcassets in Resources */,
 				595F387A272ECECB008884E1 /* cruiser.obj in Resources */,
 				591A96162715D867003A1860 /* Assets.xcassets in Resources */,
@@ -455,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595F3882272ED88E008884E1 /* LightManager.swift in Sources */,
 				5957FA14272C26EF0088D25B /* FragmentShaderLibrary.swift in Sources */,
 				591A962B2715E612003A1860 /* BasicShader.metal in Sources */,
 				595724762723E4C500F3929B /* GameObject.swift in Sources */,
@@ -462,6 +476,7 @@
 				5957248127240E4700F3929B /* Renderable.swift in Sources */,
 				591A961B2715D867003A1860 /* Persistence.swift in Sources */,
 				595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */,
+				595F3880272ED758008884E1 /* LightObject.swift in Sources */,
 				5941F29227299663008151A1 /* ColorUtil.swift in Sources */,
 				5991467E272DB37C006E5C09 /* InstancedShader.metal in Sources */,
 				595F387E272ED08F008884E1 /* Cruiser.swift in Sources */,
@@ -476,6 +491,7 @@
 				5957FA10272C25780088D25B /* Shader.swift in Sources */,
 				5957FA0C272C1CA00088D25B /* Library.swift in Sources */,
 				595B479D2728423D00BC2F02 /* Keyboard.swift in Sources */,
+				595F3884272EDA1D008884E1 /* Sun.swift in Sources */,
 				595724652723D16E00F3929B /* MetalTypes.swift in Sources */,
 				5941F28F27298C23008151A1 /* DepthStencilStateLibrary.swift in Sources */,
 				591A96292715D927003A1860 /* MetalView.swift in Sources */,
