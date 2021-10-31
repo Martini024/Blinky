@@ -10,6 +10,7 @@ import MetalKit
 enum TextureType {
     case none
     case partyPirateParot
+    case cruiser
 }
 
 class TextureLibrary: Library<TextureType, MTLTexture> {
@@ -17,6 +18,7 @@ class TextureLibrary: Library<TextureType, MTLTexture> {
     
     override func fillLibrary() {
         library.updateValue(Texture("PartyPirateParot"), forKey: .partyPirateParot)
+        library.updateValue(Texture("cruiser", ext: "bmp", origin: .bottomLeft), forKey: .cruiser)
     }
     
     override subscript(_ type: TextureType) -> MTLTexture? {

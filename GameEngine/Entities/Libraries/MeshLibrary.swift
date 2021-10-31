@@ -11,6 +11,7 @@ enum MeshType {
     case triangle
     case quadrangle
     case cube
+    case cruiser
 }
 
 class MeshLibrary: Library<MeshType, Mesh> {
@@ -20,6 +21,7 @@ class MeshLibrary: Library<MeshType, Mesh> {
         _library.updateValue(TriangleMesh(), forKey: .triangle)
         _library.updateValue(QuadrangleMesh(), forKey: .quadrangle)
         _library.updateValue(CubeMesh(), forKey: .cube)
+        _library.updateValue(ModelMesh(modelName: "cruiser"), forKey: .cruiser)
     }
     
     override subscript(type: MeshType) -> Mesh {
@@ -27,13 +29,12 @@ class MeshLibrary: Library<MeshType, Mesh> {
     }
 }
 
-protocol MeshProtocol {
-    var vertexCount: Int! { get }
+protocol Mesh {
     func setInstacneCount(_ count: Int)
     func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 
-class Mesh: MeshProtocol {
+class CustomMesh: Mesh {
     private var _vertices: [Vertex] = []
     private var _vertexBuffer: MTLBuffer!
     private var _instanceCount: Int = 1
@@ -69,7 +70,59 @@ class Mesh: MeshProtocol {
     }
 }
 
-class TriangleMesh: Mesh {
+class ModelMesh: Mesh {
+    private var _meshes: [Any]!
+    private var _instanceCount: Int = 1
+    
+    init(modelName: String) {
+        loadModel(modelName: modelName)
+    }
+    
+    func loadModel(modelName: String, ext: String = "obj") {
+        guard let assetURL = Bundle.main.url(forResource: modelName, withExtension: ext) else {
+            fatalError("Asset \(modelName) does not exist.")
+        }
+        
+        let descriptor = MTKModelIOVertexDescriptorFromMetal(Graphics.vertexDescriptors[.basic])
+        (descriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
+        (descriptor.attributes[1] as! MDLVertexAttribute).name = MDLVertexAttributeColor
+        (descriptor.attributes[2] as! MDLVertexAttribute).name = MDLVertexAttributeTextureCoordinate
+        
+        let bufferAllocator = MTKMeshBufferAllocator(device: Engine.device)
+        let asset: MDLAsset = MDLAsset(url: assetURL,
+                                       vertexDescriptor: descriptor,
+                                       bufferAllocator: bufferAllocator)
+        do {
+            self._meshes = try MTKMesh.newMeshes(asset: asset, device: Engine.device).metalKitMeshes
+        } catch {
+            print("ERROR::LOADING_MESH::__\(modelName)__::\(error)")
+        }
+    }
+    
+    func setInstacneCount(_ count: Int) {
+        self._instanceCount = count
+    }
+    
+    func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder) {
+        guard let meshes = self._meshes as? [MTKMesh] else { return }
+        for mesh in meshes {
+            for vertexBuffer in mesh.vertexBuffers {
+                renderCommandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: vertexBuffer.offset, index: 0)
+                for submesh in mesh.submeshes {
+                    renderCommandEncoder.drawIndexedPrimitives(
+                        type: submesh.primitiveType,
+                        indexCount: submesh.indexCount,
+                        indexType: submesh.indexType,
+                        indexBuffer: submesh.indexBuffer.buffer,
+                        indexBufferOffset: submesh.indexBuffer.offset,
+                        instanceCount: self._instanceCount)
+                }
+            }
+        }
+    }
+}
+
+class TriangleMesh: CustomMesh {
     override func createVertices() {
         addVertex(position: simd_float3( 0, 1, 0), color: simd_float4(1,0,0,1))
         addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,1,0,1))
@@ -77,7 +130,7 @@ class TriangleMesh: Mesh {
     }
 }
 
-class QuadrangleMesh: Mesh {
+class QuadrangleMesh: CustomMesh {
     override func createVertices() {
         addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1), textureCoordinate: simd_float2(1, 0))
         addVertex(position: simd_float3(-1, 1, 0), color: simd_float4(0,1,0,1), textureCoordinate: simd_float2(0, 0))
@@ -89,7 +142,7 @@ class QuadrangleMesh: Mesh {
     }
 }
 
-class CubeMesh: Mesh {
+class CubeMesh: CustomMesh {
     override func createVertices() {
         //Left
         addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(1.0, 0.5, 0.0, 1.0))

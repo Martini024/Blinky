@@ -48,9 +48,13 @@
 		595B47A42728555C00BC2F02 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A32728555C00BC2F02 /* Camera.swift */; };
 		595B47A62728567300BC2F02 /* DebugCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A52728567300BC2F02 /* DebugCamera.swift */; };
 		595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B47A72728592E00BC2F02 /* CameraManager.swift */; };
-		595F386F272E7FCB008884E1 /* PartyPirateParot.png in Resources */ = {isa = PBXBuildFile; fileRef = 595F386E272E7FCB008884E1 /* PartyPirateParot.png */; };
 		595F3871272E8372008884E1 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F3870272E8372008884E1 /* TextureLibrary.swift */; };
 		595F3873272E853B008884E1 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F3872272E853B008884E1 /* SamplerStateLibrary.swift */; };
+		595F3876272ECEB0008884E1 /* PartyPirateParot.png in Resources */ = {isa = PBXBuildFile; fileRef = 595F3875272ECEB0008884E1 /* PartyPirateParot.png */; };
+		595F387A272ECECB008884E1 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = 595F3877272ECECB008884E1 /* cruiser.obj */; };
+		595F387B272ECECB008884E1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 595F3878272ECECB008884E1 /* cruiser.bmp */; };
+		595F387C272ECECB008884E1 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 595F3879272ECECB008884E1 /* cruiser.mtl */; };
+		595F387E272ED08F008884E1 /* Cruiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595F387D272ED08F008884E1 /* Cruiser.swift */; };
 		5991467C272DAF7C006E5C09 /* Shared.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5991467B272DAF7C006E5C09 /* Shared.metal */; };
 		5991467E272DB37C006E5C09 /* InstancedShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 5991467D272DB37C006E5C09 /* InstancedShader.metal */; };
 		59EDD04A272AD75000D20C58 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59EDD049272AD75000D20C58 /* InstancedGameObject.swift */; };
@@ -101,9 +105,13 @@
 		595B47A32728555C00BC2F02 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		595B47A52728567300BC2F02 /* DebugCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCamera.swift; sourceTree = "<group>"; };
 		595B47A72728592E00BC2F02 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		595F386E272E7FCB008884E1 /* PartyPirateParot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PartyPirateParot.png; path = ../../../../../Downloads/PartyPirateParot.png; sourceTree = "<group>"; };
 		595F3870272E8372008884E1 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		595F3872272E853B008884E1 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
+		595F3875272ECEB0008884E1 /* PartyPirateParot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartyPirateParot.png; sourceTree = "<group>"; };
+		595F3877272ECECB008884E1 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
+		595F3878272ECECB008884E1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
+		595F3879272ECECB008884E1 /* cruiser.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl; sourceTree = "<group>"; };
+		595F387D272ED08F008884E1 /* Cruiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruiser.swift; sourceTree = "<group>"; };
 		5991467B272DAF7C006E5C09 /* Shared.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shared.metal; sourceTree = "<group>"; };
 		5991467D272DB37C006E5C09 /* InstancedShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = InstancedShader.metal; sourceTree = "<group>"; };
 		59EDD049272AD75000D20C58 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
@@ -260,6 +268,7 @@
 				5957247B27240C3200F3929B /* Pointer.swift */,
 				5941F28C272988F6008151A1 /* Cube.swift */,
 				5957FA00272C16F40088D25B /* Quadrangle.swift */,
+				595F387D272ED08F008884E1 /* Cruiser.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -356,9 +365,20 @@
 		595F386D272E7F8D008884E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				595F386E272E7FCB008884E1 /* PartyPirateParot.png */,
+				595F3874272ECE26008884E1 /* Cruiser */,
+				595F3875272ECEB0008884E1 /* PartyPirateParot.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		595F3874272ECE26008884E1 /* Cruiser */ = {
+			isa = PBXGroup;
+			children = (
+				595F3878272ECECB008884E1 /* cruiser.bmp */,
+				595F3879272ECECB008884E1 /* cruiser.mtl */,
+				595F3877272ECECB008884E1 /* cruiser.obj */,
+			);
+			path = Cruiser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,8 +440,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				591A96192715D867003A1860 /* Preview Assets.xcassets in Resources */,
+				595F387A272ECECB008884E1 /* cruiser.obj in Resources */,
 				591A96162715D867003A1860 /* Assets.xcassets in Resources */,
-				595F386F272E7FCB008884E1 /* PartyPirateParot.png in Resources */,
+				595F3876272ECEB0008884E1 /* PartyPirateParot.png in Resources */,
+				595F387B272ECECB008884E1 /* cruiser.bmp in Resources */,
+				595F387C272ECECB008884E1 /* cruiser.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +464,7 @@
 				595B47A82728592E00BC2F02 /* CameraManager.swift in Sources */,
 				5941F29227299663008151A1 /* ColorUtil.swift in Sources */,
 				5991467E272DB37C006E5C09 /* InstancedShader.metal in Sources */,
+				595F387E272ED08F008884E1 /* Cruiser.swift in Sources */,
 				595F3871272E8372008884E1 /* TextureLibrary.swift in Sources */,
 				59EDD04C272AE0E800D20C58 /* CubeCollection.swift in Sources */,
 				5957248A27242B0000F3929B /* SandboxScene.swift in Sources */,
