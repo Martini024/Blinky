@@ -11,14 +11,18 @@ using namespace metal;
 struct VertexIn {
     float3 position [[ attribute(0) ]];
     float4 color [[ attribute(1) ]];
+    float2 textureCoordinate [[ attribute(2) ]];
 };
 
 struct RasterizerData {
     float4 position [[ position ]];
     float4 color;
+    float2 textureCoordinate;
+    float totalGameTime;
 };
 
 struct SceneConstants {
+    float totalGameTime;
     float4x4 viewMatrix;
     float4x4 projectionMatrix;
 };
@@ -30,4 +34,5 @@ struct ModelConstants {
 struct Material {
     float4 color;
     bool useMaterialColor;
+    bool useTexture;
 };

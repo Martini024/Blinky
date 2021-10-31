@@ -17,10 +17,11 @@ class SandboxScene: Scene {
         
         debugCamera.setPositionZ(5)
         
+        quadrangle.setTexture(.partyPirateParot)
         addChild(quadrangle)
     }
     
     override func doUpdate() {
-        quadrangle.setPositionX(cos(GameTime.totalGameTime))
+        quadrangle.rotateY(GameTime.deltaTime)
     }
 }

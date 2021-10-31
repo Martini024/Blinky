@@ -52,8 +52,10 @@ class Mesh: MeshProtocol {
         _vertexBuffer = Engine.device.makeBuffer(bytes: _vertices, length: Vertex.stride(vertexCount), options: [])
     }
     
-    func addVertex(position: simd_float3, color: simd_float4 = simd_float4(1, 0, 1, 1)) {
-        _vertices.append(Vertex(position: position, color: color))
+    func addVertex(position: simd_float3,
+                   color: simd_float4 = simd_float4(1, 0, 1, 1),
+                   textureCoordinate: simd_float2 = simd_float2(repeating: 0)) {
+        _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate))
     }
     
     func setInstacneCount(_ count: Int) {
@@ -77,13 +79,13 @@ class TriangleMesh: Mesh {
 
 class QuadrangleMesh: Mesh {
     override func createVertices() {
-        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1))
-        addVertex(position: simd_float3(-1, 1, 0), color: simd_float4(0,1,0,1))
-        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1))
+        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1), textureCoordinate: simd_float2(1, 0))
+        addVertex(position: simd_float3(-1, 1, 0), color: simd_float4(0,1,0,1), textureCoordinate: simd_float2(0, 0))
+        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1), textureCoordinate: simd_float2(0, 1))
         
-        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1))
-        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1))
-        addVertex(position: simd_float3( 1,-1, 0), color: simd_float4(1,0,1,1))
+        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1), textureCoordinate: simd_float2(1, 0))
+        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1), textureCoordinate: simd_float2(0, 1))
+        addVertex(position: simd_float3( 1,-1, 0), color: simd_float4(1,0,1,1), textureCoordinate: simd_float2(1, 1))
     }
 }
 

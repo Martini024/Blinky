@@ -11,7 +11,8 @@ class GameObject: Node {
     
     var modelConstants = ModelConstants()
     
-    private var material = Material()
+    private var _material = Material()
+    private var _textureType: TextureType = .none
     
     private var _mesh: Mesh!
     
@@ -33,12 +34,16 @@ extension GameObject: Renderable {
     func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
         renderCommandEncoder.setRenderPipelineState(Graphics.renderPipelineStates[.basic])
         renderCommandEncoder.setDepthStencilState(Graphics.depthStencilStates[.less])
+        renderCommandEncoder.setFragmentSamplerState(Graphics.samplerStates[.linear], index: 0)
         
         // Vertex Shader
         renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
         
         // Fragment Shader
-        renderCommandEncoder.setFragmentBytes(&material, length: Material.stride, index: 1)
+        renderCommandEncoder.setFragmentBytes(&_material, length: Material.stride, index: 1)
+        if (_material.useTexture) {
+            renderCommandEncoder.setFragmentTexture(Entities.textures[_textureType], index: 0)
+        }
         
         _mesh.drawPrimitives(renderCommandEncoder)
     }
@@ -46,7 +51,13 @@ extension GameObject: Renderable {
 
 extension GameObject {
     public func setColor(_ color: simd_float4) {
-        self.material.color = color
-        self.material.useMaterialColor = true
+        self._material.color = color
+        self._material.useMaterialColor = true
+    }
+    
+    public func setTexture(_ textureType: TextureType) {
+        self._material.useTexture = true
+        self._material.useMaterialColor = false
+        self._textureType = textureType
     }
 }

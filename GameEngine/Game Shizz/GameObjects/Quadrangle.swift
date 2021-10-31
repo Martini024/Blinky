@@ -10,8 +10,6 @@ import MetalKit
 class Quandrangle: GameObject {
     init() {
         super.init(meshType: .quadrangle)
-        let cube = Cube()
-        cube.setScale(simd_float3(repeating: 0.3))
-        addChild(cube)
+        self.setName("Quadrangle")
     }
 }
