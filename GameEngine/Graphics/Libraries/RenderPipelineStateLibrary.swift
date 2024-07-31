@@ -29,7 +29,7 @@ class RenderPipelineState {
     var renderPipelineState: MTLRenderPipelineState!
     init(_ renderPipelineDescriptorType: RenderPipelineDescriptorType) {
         do {
-            renderPipelineState = try Engine.device.makeRenderPipelineState(descriptor: Graphics.renderPipelineDescriptors[.basic])
+            renderPipelineState = try Engine.device.makeRenderPipelineState(descriptor: Graphics.renderPipelineDescriptors[renderPipelineDescriptorType])
         } catch let error as NSError {
             print("ERROR::CREATE::RENDER_PIPELINE_STATE::__::\(error)")
         }

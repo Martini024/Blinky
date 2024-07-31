@@ -36,6 +36,7 @@ struct Vertex: Sizable {
     var textureCoordinate: simd_float2
 }
 
+extension Int32: Sizable { }
 extension simd_float2: Sizable { }
 extension simd_float3: Sizable { }
 extension simd_float4: Sizable { }
@@ -55,8 +56,15 @@ struct Material: Sizable {
     var color = simd_float4(0.8, 0.8, 0.8, 1.0)
     var useMaterialColor: Bool = false
     var useTexture: Bool = false
+    var isLit: Bool = true
+    
+    var ambient: simd_float3 = simd_float3(0.33, 0.33, 0.33)
 }
 
 struct LightData: Sizable {
     var position: simd_float3 = simd_float3(0, 0, 0)
+    var color: simd_float3 = simd_float3(1, 1, 1)
+    var brightness: Float = 1.0
+    
+    var ambientIntensity: Float = 1.0
 }

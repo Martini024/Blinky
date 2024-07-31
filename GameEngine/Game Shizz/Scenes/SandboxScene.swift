@@ -17,6 +17,8 @@ class SandboxScene: Scene {
         addCamera(debugCamera)
         
         sun.setPosition(simd_float3(0, 2, 2))
+        sun.setMaterialIsLit(false)
+        sun.setLightColor(simd_float3(1, 0, 0))
         addLight(sun)
         
         debugCamera.setPositionZ(5)
