@@ -47,6 +47,10 @@ public struct BasicVertexDescriptor: VertexDescriptor {
         vertexDescriptor.attributes[2].bufferIndex = 0
         vertexDescriptor.attributes[2].offset = simd_float3.size + simd_float4.size
         
+        vertexDescriptor.attributes[3].format = .float3
+        vertexDescriptor.attributes[3].bufferIndex = 0
+        vertexDescriptor.attributes[3].offset = simd_float3.size + simd_float4.size + simd_float2.size
+        
         vertexDescriptor.layouts[0].stride = Vertex.stride
     }
 }

@@ -68,8 +68,9 @@ class CustomMesh: Mesh {
     
     func addVertex(position: simd_float3,
                    color: simd_float4 = simd_float4(1, 0, 1, 1),
-                   textureCoordinate: simd_float2 = simd_float2(repeating: 0)) {
-        _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate))
+                   textureCoordinate: simd_float2 = simd_float2(repeating: 0),
+                   normal: simd_float3 = simd_float3(0, 1, 0)) {
+        _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate, normal: normal))
     }
     
     func setInstacneCount(_ count: Int) {
@@ -100,6 +101,7 @@ class ModelMesh: Mesh {
         (descriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
         (descriptor.attributes[1] as! MDLVertexAttribute).name = MDLVertexAttributeColor
         (descriptor.attributes[2] as! MDLVertexAttribute).name = MDLVertexAttributeTextureCoordinate
+        (descriptor.attributes[3] as! MDLVertexAttribute).name = MDLVertexAttributeNormal
         
         let bufferAllocator = MTKMeshBufferAllocator(device: Engine.device)
         let asset: MDLAsset = MDLAsset(url: assetURL,
