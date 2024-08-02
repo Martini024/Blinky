@@ -8,7 +8,7 @@
 import MetalKit
 
 class Renderer: NSObject {
-    public static var screenSize = simd_float2(repeating: 0)
+    public static var screenSize = float2(repeating: 0)
     public static var aspectRatio: Float {
         screenSize.x / screenSize.y
     }
@@ -22,7 +22,7 @@ class Renderer: NSObject {
 extension Renderer: MTKViewDelegate {
     
     public func updateScreenSize(_ frame: CGSize) {
-        Renderer.screenSize = simd_float2(Float(frame.width), Float(frame.height))
+        Renderer.screenSize = float2(Float(frame.width), Float(frame.height))
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {

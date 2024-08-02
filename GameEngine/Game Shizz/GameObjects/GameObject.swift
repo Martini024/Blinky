@@ -50,7 +50,7 @@ extension GameObject: Renderable {
 }
 
 extension GameObject {
-    public func setMaterialColor(_ color: simd_float4) {
+    public func setMaterialColor(_ color: float4) {
         self._material.color = color
         self._material.useMaterialColor = true
         self._material.useTexture = false
@@ -67,22 +67,22 @@ extension GameObject {
     public func getMaterialIsLit() -> Bool { return self._material.isLit }
 
     // Ambient
-    public func setMaterialAmbient(_ ambient: simd_float3) { self._material.ambient = ambient }
-    public func setMaterialAmbient(_ ambient: Float) { self._material.ambient = simd_float3(ambient, ambient, ambient) }
+    public func setMaterialAmbient(_ ambient: float3) { self._material.ambient = ambient }
+    public func setMaterialAmbient(_ ambient: Float) { self._material.ambient = float3(ambient, ambient, ambient) }
     public func addMaterialAmbient(_ value: Float) { self._material.ambient += value }
-    public func getMaterialAmbient() -> simd_float3 { return self._material.ambient }
+    public func getMaterialAmbient() -> float3 { return self._material.ambient }
     
     // Diffuse
-    public func setMaterialDiffuse(_ diffuse: simd_float3) { self._material.diffuse = diffuse }
-    public func setMaterialDiffuse(_ diffuse: Float) { self._material.diffuse = simd_float3(diffuse, diffuse, diffuse) }
+    public func setMaterialDiffuse(_ diffuse: float3) { self._material.diffuse = diffuse }
+    public func setMaterialDiffuse(_ diffuse: Float) { self._material.diffuse = float3(diffuse, diffuse, diffuse) }
     public func addMaterialDiffuse(_ value: Float) { self._material.diffuse += value }
-    public func getMaterialDiffuse() -> simd_float3 { return self._material.diffuse }
+    public func getMaterialDiffuse() -> float3 { return self._material.diffuse }
     
     // Specular
-    public func setMaterialSpecular(_ specular: simd_float3) { self._material.specular = specular }
-    public func setMaterialSpecular(_ specular: Float) { self._material.specular = simd_float3(specular, specular, specular) }
+    public func setMaterialSpecular(_ specular: float3) { self._material.specular = specular }
+    public func setMaterialSpecular(_ specular: Float) { self._material.specular = float3(specular, specular, specular) }
     public func addMaterialSpecular(_ value: Float) { self._material.specular += value }
-    public func getMaterialSpecular() -> simd_float3 { return self._material.specular }
+    public func getMaterialSpecular() -> float3 { return self._material.specular }
     
     public func setMaterialShininess(_ shininess: Float) { self._material.shininess = shininess }
     public func getMaterialShininess() -> Float { return self._material.shininess }

@@ -41,15 +41,15 @@ public struct BasicVertexDescriptor: VertexDescriptor {
         
         vertexDescriptor.attributes[1].format = .float4
         vertexDescriptor.attributes[1].bufferIndex = 0
-        vertexDescriptor.attributes[1].offset = simd_float3.size
+        vertexDescriptor.attributes[1].offset = float3.size
         
         vertexDescriptor.attributes[2].format = .float2
         vertexDescriptor.attributes[2].bufferIndex = 0
-        vertexDescriptor.attributes[2].offset = simd_float3.size + simd_float4.size
+        vertexDescriptor.attributes[2].offset = float3.size + float4.size
         
         vertexDescriptor.attributes[3].format = .float3
         vertexDescriptor.attributes[3].bufferIndex = 0
-        vertexDescriptor.attributes[3].offset = simd_float3.size + simd_float4.size + simd_float2.size
+        vertexDescriptor.attributes[3].offset = float3.size + float4.size + float2.size
         
         vertexDescriptor.layouts[0].stride = Vertex.stride
     }

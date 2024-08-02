@@ -17,8 +17,8 @@ class Mouse {
     private static var mouseButtonCount = 12
     private static var mouseButtons = [Bool].init(repeating: false, count: mouseButtonCount)
     
-    private static var overallMousePosition = simd_float2(repeating: 0)
-    private static var mousePositionDelta = simd_float2(repeating: 0)
+    private static var overallMousePosition = float2(repeating: 0)
+    private static var mousePositionDelta = float2(repeating: 0)
     
     private static var scrollWheelPosition: Float = 0
     private static var lastWheelPosition: Float = 0.0
@@ -33,12 +33,12 @@ class Mouse {
         return mouseButtons[Int(button.rawValue)] == true
     }
     
-    public static func setOverallMousePosition(position: simd_float2){
+    public static func setOverallMousePosition(position: float2){
         self.overallMousePosition = position
     }
     
     ///Sets the delta distance the mouse had moved
-    public static func setMousePositionChange(overallPosition: simd_float2, deltaPosition: simd_float2){
+    public static func setMousePositionChange(overallPosition: float2, deltaPosition: float2){
         self.overallMousePosition = overallPosition
         self.mousePositionDelta = deltaPosition
     }
@@ -49,7 +49,7 @@ class Mouse {
     }
     
     //Returns the overall position of the mouse on the current window
-    public static func getMouseWindowPosition()->simd_float2{
+    public static func getMouseWindowPosition()->float2{
         return overallMousePosition
     }
     
@@ -75,9 +75,9 @@ class Mouse {
     }
     
     ///Returns the mouse position in screen-view coordinates [-1, 1]
-    public static func getMouseViewportPosition() -> simd_float2 {
+    public static func getMouseViewportPosition() -> float2 {
         let x = (overallMousePosition.x - Renderer.screenSize.x * 0.5) / (Renderer.screenSize.x * 0.5)
         let y = (overallMousePosition.y - Renderer.screenSize.y * 0.5) / (Renderer.screenSize.y * 0.5)
-        return simd_float2(x, y)
+        return float2(x, y)
     }
 }

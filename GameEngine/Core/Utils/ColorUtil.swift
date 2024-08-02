@@ -8,7 +8,7 @@
 import MetalKit
 
 class ColorUtil {
-    public static var randomColor: simd_float4 {
-        return simd_float4(Float.random(in: 0...1), Float.random(in: 0...1), Float.random(in: 0...1), 1.0)
+    public static var randomColor: float4 {
+        return float4(Float.random(in: 0...1), Float.random(in: 0...1), Float.random(in: 0...1), 1.0)
     }
 }

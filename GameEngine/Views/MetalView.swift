@@ -102,8 +102,8 @@ extension GameView {
     }
     
     private func setMousePositionChanged(event: NSEvent){
-        let overallLocation = simd_float2(Float(event.locationInWindow.x), Float(event.locationInWindow.y))
-        let deltaChange = simd_float2(Float(event.deltaX), Float(event.deltaY))
+        let overallLocation = float2(Float(event.locationInWindow.x), Float(event.locationInWindow.y))
+        let deltaChange = float2(Float(event.deltaX), Float(event.deltaY))
         Mouse.setMousePositionChange(overallPosition: overallLocation, deltaPosition: deltaChange)
     }
     

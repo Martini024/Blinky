@@ -35,10 +35,10 @@ class CubeCollection: InstancedGameObject {
                 for z in stride(from: -halfBack, to: halfBack, by: 1.0) {
                     let posZ = Float(z * gap)
                     let node = _nodes[index]
-                    node.setPosition(simd_float3(posX, posY, posZ))
+                    node.setPosition(float3(posX, posY, posZ))
                     node.setRotationZ(-GameTime.deltaTime * 2)
                     node.setRotationY(-GameTime.deltaTime * 2)
-                    node.setScale(simd_float3(0.3, 0.3, 0.3))
+                    node.setScale(float3(0.3, 0.3, 0.3))
                     index += 1
                 }
             }

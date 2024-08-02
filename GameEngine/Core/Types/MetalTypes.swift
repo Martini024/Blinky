@@ -7,6 +7,10 @@
 
 import simd
 
+public typealias float2 = SIMD2<Float>
+public typealias float3 = SIMD3<Float>
+public typealias float4 = SIMD4<Float>
+
 protocol Sizable {
     static func size(_ count: Int) -> Int
     static func stride(_ count: Int) -> Int
@@ -31,16 +35,16 @@ extension Sizable {
 }
 
 struct Vertex: Sizable {
-    var position: simd_float3
-    var color: simd_float4
-    var textureCoordinate: simd_float2
-    var normal: simd_float3;
+    var position: float3
+    var color: float4
+    var textureCoordinate: float2
+    var normal: float3;
 }
 
 extension Int32: Sizable { }
-extension simd_float2: Sizable { }
-extension simd_float3: Sizable { }
-extension simd_float4: Sizable { }
+extension float2: Sizable { }
+extension float3: Sizable { }
+extension float4: Sizable { }
 extension Float: Sizable { }
 
 struct ModelConstants: Sizable {
@@ -51,24 +55,24 @@ struct SceneConstants: Sizable {
     var totalGameTime: Float = 0
     var viewMatrix = matrix_identity_float4x4
     var projectionMatrix = matrix_identity_float4x4
-    var cameraPosition = simd_float3(0, 0, 0)
+    var cameraPosition = float3(0, 0, 0)
 }
 
 struct Material: Sizable {
-    var color = simd_float4(0.8, 0.8, 0.8, 1.0)
+    var color = float4(0.8, 0.8, 0.8, 1.0)
     var useMaterialColor: Bool = false
     var useTexture: Bool = false
     var isLit: Bool = true
     
-    var ambient: simd_float3 = simd_float3(0.03, 0.03, 0.03)
-    var diffuse: simd_float3 = simd_float3(1, 1, 1)
-    var specular: simd_float3 = simd_float3(1, 1, 1)
+    var ambient: float3 = float3(0.03, 0.03, 0.03)
+    var diffuse: float3 = float3(1, 1, 1)
+    var specular: float3 = float3(1, 1, 1)
     var shininess: Float = 2
 }
 
 struct LightData: Sizable {
-    var position: simd_float3 = simd_float3(0, 0, 0)
-    var color: simd_float3 = simd_float3(1, 1, 1)
+    var position: float3 = float3(0, 0, 0)
+    var color: float3 = float3(1, 1, 1)
     var brightness: Float = 1.0
     
     var ambientIntensity: Float = 1.0

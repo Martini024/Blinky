@@ -66,10 +66,10 @@ class CustomMesh: Mesh {
         _vertexBuffer = Engine.device.makeBuffer(bytes: _vertices, length: Vertex.stride(vertexCount), options: [])
     }
     
-    func addVertex(position: simd_float3,
-                   color: simd_float4 = simd_float4(1, 0, 1, 1),
-                   textureCoordinate: simd_float2 = simd_float2(repeating: 0),
-                   normal: simd_float3 = simd_float3(0, 1, 0)) {
+    func addVertex(position: float3,
+                   color: float4 = float4(1, 0, 1, 1),
+                   textureCoordinate: float2 = float2(repeating: 0),
+                   normal: float3 = float3(0, 1, 0)) {
         _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate, normal: normal))
     }
     
@@ -139,72 +139,72 @@ class ModelMesh: Mesh {
 
 class TriangleMesh: CustomMesh {
     override func createVertices() {
-        addVertex(position: simd_float3( 0, 1, 0), color: simd_float4(1,0,0,1))
-        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,1,0,1))
-        addVertex(position: simd_float3( 1,-1, 0), color: simd_float4(0,0,1,1))
+        addVertex(position: float3( 0, 1, 0), color: float4(1,0,0,1))
+        addVertex(position: float3(-1,-1, 0), color: float4(0,1,0,1))
+        addVertex(position: float3( 1,-1, 0), color: float4(0,0,1,1))
     }
 }
 
 class QuadrangleMesh: CustomMesh {
     override func createVertices() {
-        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1), textureCoordinate: simd_float2(1, 0))
-        addVertex(position: simd_float3(-1, 1, 0), color: simd_float4(0,1,0,1), textureCoordinate: simd_float2(0, 0))
-        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1), textureCoordinate: simd_float2(0, 1))
+        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0))
+        addVertex(position: float3(-1, 1, 0), color: float4(0,1,0,1), textureCoordinate: float2(0, 0))
+        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1))
         
-        addVertex(position: simd_float3( 1, 1, 0), color: simd_float4(1,0,0,1), textureCoordinate: simd_float2(1, 0))
-        addVertex(position: simd_float3(-1,-1, 0), color: simd_float4(0,0,1,1), textureCoordinate: simd_float2(0, 1))
-        addVertex(position: simd_float3( 1,-1, 0), color: simd_float4(1,0,1,1), textureCoordinate: simd_float2(1, 1))
+        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0))
+        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1))
+        addVertex(position: float3( 1,-1, 0), color: float4(1,0,1,1), textureCoordinate: float2(1, 1))
     }
 }
 
 class CubeMesh: CustomMesh {
     override func createVertices() {
         //Left
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(1.0, 0.5, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0, 1.0), color: simd_float4(0.0, 1.0, 0.5, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0, 1.0), color: simd_float4(0.0, 0.5, 1.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(1.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0, 1.0), color: simd_float4(0.0, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0,-1.0), color: simd_float4(1.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(1.0, 0.0, 1.0, 1.0))
         
         //RIGHT
-        addVertex(position: simd_float3( 1.0, 1.0, 1.0), color: simd_float4(1.0, 0.0, 0.5, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0,-1.0), color: simd_float4(0.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0,-1.0), color: simd_float4(0.0, 0.5, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0,-1.0), color: simd_float4(1.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0, 1.0), color: simd_float4(0.0, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0, 1.0), color: simd_float4(1.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.5, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 1.0, 1.0))
         
         //TOP
-        addVertex(position: simd_float3( 1.0, 1.0, 1.0), color: simd_float4(1.0, 0.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0,-1.0), color: simd_float4(0.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0,-1.0), color: simd_float4(0.0, 0.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0, 1.0), color: simd_float4(1.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0,-1.0), color: simd_float4(0.5, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0, 1.0), color: simd_float4(1.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 0.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.5, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0))
         
         //BOTTOM
-        addVertex(position: simd_float3( 1.0,-1.0, 1.0), color: simd_float4(1.0, 0.5, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(0.5, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0,-1.0), color: simd_float4(0.0, 0.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0, 1.0), color: simd_float4(1.0, 1.0, 0.5, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0, 1.0), color: simd_float4(0.0, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(1.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0))
         
         //BACK
-        addVertex(position: simd_float3( 1.0, 1.0,-1.0), color: simd_float4(1.0, 0.5, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(0.5, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0,-1.0), color: simd_float4(0.0, 0.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0,-1.0), color: simd_float4(1.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0,-1.0), color: simd_float4(0.0, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0,-1.0), color: simd_float4(1.0, 0.5, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(0.5, 1.0, 0.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0,-1.0), color: float4(0.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0,-1.0), color: float4(1.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0,-1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0,-1.0), color: float4(1.0, 0.5, 1.0, 1.0))
         
         //FRONT
-        addVertex(position: simd_float3(-1.0, 1.0, 1.0), color: simd_float4(1.0, 0.5, 0.0, 1.0))
-        addVertex(position: simd_float3(-1.0,-1.0, 1.0), color: simd_float4(0.0, 1.0, 0.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0, 1.0), color: simd_float4(0.5, 0.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0, 1.0, 1.0), color: simd_float4(1.0, 1.0, 0.5, 1.0))
-        addVertex(position: simd_float3(-1.0, 1.0, 1.0), color: simd_float4(0.0, 1.0, 1.0, 1.0))
-        addVertex(position: simd_float3( 1.0,-1.0, 1.0), color: simd_float4(1.0, 0.0, 1.0, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(1.0, 0.5, 0.0, 1.0))
+        addVertex(position: float3(-1.0,-1.0, 1.0), color: float4(0.0, 1.0, 0.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(0.5, 0.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0, 1.0, 1.0), color: float4(1.0, 1.0, 0.5, 1.0))
+        addVertex(position: float3(-1.0, 1.0, 1.0), color: float4(0.0, 1.0, 1.0, 1.0))
+        addVertex(position: float3( 1.0,-1.0, 1.0), color: float4(1.0, 0.0, 1.0, 1.0))
     }
 }
