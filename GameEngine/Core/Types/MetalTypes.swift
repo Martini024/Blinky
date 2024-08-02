@@ -51,6 +51,7 @@ struct SceneConstants: Sizable {
     var totalGameTime: Float = 0
     var viewMatrix = matrix_identity_float4x4
     var projectionMatrix = matrix_identity_float4x4
+    var cameraPosition = simd_float3(0, 0, 0)
 }
 
 struct Material: Sizable {
@@ -61,6 +62,8 @@ struct Material: Sizable {
     
     var ambient: simd_float3 = simd_float3(0.03, 0.03, 0.03)
     var diffuse: simd_float3 = simd_float3(1, 1, 1)
+    var specular: simd_float3 = simd_float3(1, 1, 1)
+    var shininess: Float = 2
 }
 
 struct LightData: Sizable {
@@ -70,4 +73,5 @@ struct LightData: Sizable {
     
     var ambientIntensity: Float = 1.0
     var diffuseIntensity: Float = 1.0
+    var specularIntensity: Float = 1.0
 }

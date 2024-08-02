@@ -36,6 +36,7 @@ class Scene: Node {
         _sceneConstants.viewMatrix = _cameraManager.currentCamera.viewMatrix
         _sceneConstants.projectionMatrix = _cameraManager.currentCamera.projectionMatrix
         _sceneConstants.totalGameTime = GameTime.totalGameTime
+        _sceneConstants.cameraPosition = _cameraManager.currentCamera.getPosition()
     }
     
     func updateCameras(deltaTime: Float) {
