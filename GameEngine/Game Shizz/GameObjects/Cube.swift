@@ -11,9 +11,4 @@ class Cube: GameObject {
     init() {
         super.init(name: "Cube", meshType: .cube)
     }
-    
-    override func doUpdate() {
-        self.rotateX(GameTime.deltaTime)
-        self.rotateY(GameTime.deltaTime)
-    }
 }
