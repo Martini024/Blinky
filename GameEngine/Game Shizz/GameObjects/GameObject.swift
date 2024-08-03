@@ -9,24 +9,19 @@ import MetalKit
 
 class GameObject: Node {
     
-    var modelConstants = ModelConstants()
-    
+    private var _modelConstants = ModelConstants()
     private var _material = Material()
     private var _textureType: TextureType = .none
-    
     private var _mesh: Mesh!
     
-    init(meshType: MeshType) {
+    init(name: String, meshType: MeshType) {
+        super.init(name: name)
         _mesh = Entities.meshes[meshType]
     }
     
     override func update() {
-        updateModelConstants()
+        _modelConstants.modelMatrix = self.modelMatrix
         super.update()
-    }
-    
-    private func updateModelConstants() {
-        modelConstants.modelMatrix = self.modelMatrix
     }
 }
 
@@ -37,7 +32,7 @@ extension GameObject: Renderable {
         renderCommandEncoder.setFragmentSamplerState(Graphics.samplerStates[.linear], index: 0)
         
         // Vertex Shader
-        renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
+        renderCommandEncoder.setVertexBytes(&_modelConstants, length: ModelConstants.stride, index: 2)
         
         // Fragment Shader
         renderCommandEncoder.setFragmentBytes(&_material, length: Material.stride, index: 1)
@@ -56,6 +51,8 @@ extension GameObject {
         self._material.useTexture = false
     }
     
+    public func setMaterialColor(_ r: Float, _ g: Float, _ b: Float, _ a: Float) { setMaterialColor(float4(r, g, b, a)) }
+    
     public func setTexture(_ textureType: TextureType) {
         self._textureType = textureType
         self._material.useTexture = true
@@ -69,18 +66,21 @@ extension GameObject {
     // Ambient
     public func setMaterialAmbient(_ ambient: float3) { self._material.ambient = ambient }
     public func setMaterialAmbient(_ ambient: Float) { self._material.ambient = float3(ambient, ambient, ambient) }
+    public func setMaterialAmbient(_ r: Float, _ g: Float, _ b: Float) { setMaterialAmbient(float3(r, g, b)) }
     public func addMaterialAmbient(_ value: Float) { self._material.ambient += value }
     public func getMaterialAmbient() -> float3 { return self._material.ambient }
     
     // Diffuse
     public func setMaterialDiffuse(_ diffuse: float3) { self._material.diffuse = diffuse }
     public func setMaterialDiffuse(_ diffuse: Float) { self._material.diffuse = float3(diffuse, diffuse, diffuse) }
+    public func setMaterialDiffuse(_ r: Float, _ g: Float, _ b: Float) { setMaterialDiffuse(float3(r, g, b)) }
     public func addMaterialDiffuse(_ value: Float) { self._material.diffuse += value }
     public func getMaterialDiffuse() -> float3 { return self._material.diffuse }
     
     // Specular
     public func setMaterialSpecular(_ specular: float3) { self._material.specular = specular }
     public func setMaterialSpecular(_ specular: Float) { self._material.specular = float3(specular, specular, specular) }
+    public func setMaterialSpecular(_ r: Float, _ g: Float, _ b: Float) { setMaterialSpecular(float3(r, g, b)) }
     public func addMaterialSpecular(_ value: Float) { self._material.specular += value }
     public func getMaterialSpecular() -> float3 { return self._material.specular }
     

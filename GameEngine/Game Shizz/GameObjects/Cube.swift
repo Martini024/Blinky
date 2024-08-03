@@ -9,7 +9,7 @@ import MetalKit
 
 class Cube: GameObject {
     init() {
-        super.init(meshType: .cube)
+        super.init(name: "Cube", meshType: .cube)
     }
     
     override func doUpdate() {

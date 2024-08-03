@@ -31,7 +31,7 @@ class Node {
     
     var children: [Node] = []
     
-    init(name: String = "Node") {
+    init(name: String) {
         self._name = name
         self._id = UUID().uuidString
     }
@@ -70,6 +70,7 @@ extension Node {
     
     //Positioning and Movement
     func setPosition(_ position: float3){ self._position = position }
+    func setPosition(_ r: Float,_ g: Float,_ b: Float) { setPosition(float3(r,g,b)) }
     func setPositionX(_ xPosition: Float) { self._position.x = xPosition }
     func setPositionY(_ yPosition: Float) { self._position.y = yPosition }
     func setPositionZ(_ zPosition: Float) { self._position.z = zPosition }
@@ -84,6 +85,7 @@ extension Node {
     
     //Rotating
     func setRotation(_ rotation: float3) { self._rotation = rotation }
+    func setRotation(_ r: Float,_ g: Float,_ b: Float) { setRotation(float3(r,g,b)) }
     func setRotationX(_ xRotation: Float) { self._rotation.x = xRotation }
     func setRotationY(_ yRotation: Float) { self._rotation.y = yRotation }
     func setRotationZ(_ zRotation: Float) { self._rotation.z = zRotation }
@@ -98,7 +100,8 @@ extension Node {
     
     //Scaling
     func setScale(_ scale: float3){ self._scale = scale }
-    func setScale(_ scale: Float){setScale(float3(scale, scale, scale))}
+    func setScale(_ r: Float,_ g: Float,_ b: Float) { setScale(float3(r,g,b)) }
+    func setScale(_ scale: Float){ setScale(float3(scale, scale, scale)) }
     func setScaleX(_ scaleX: Float){ self._scale.x = scaleX }
     func setScaleY(_ scaleY: Float){ self._scale.y = scaleY }
     func setScaleZ(_ scaleZ: Float){ self._scale.z = scaleZ }

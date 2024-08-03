@@ -13,7 +13,6 @@ enum SamplerStateType {
 }
 
 class SamplerStateLibrary: Library<SamplerStateType, MTLSamplerState> {
-    
     private var library: [SamplerStateType : SamplerState] = [:]
     
     override func fillLibrary() {
@@ -23,7 +22,6 @@ class SamplerStateLibrary: Library<SamplerStateType, MTLSamplerState> {
     override subscript(_ type: SamplerStateType) -> MTLSamplerState {
         return (library[type]?.samplerState!)!
     }
-    
 }
 
 protocol SamplerState {

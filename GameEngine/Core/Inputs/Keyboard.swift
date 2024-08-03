@@ -6,7 +6,6 @@
 //
 
 class Keyboard {
-    
     private static var keyCount: Int = 256
     private static var keys = [Bool].init(repeating: false, count: keyCount)
     
@@ -17,5 +16,4 @@ class Keyboard {
     public static func isKeyPressed(_ keyCode: KeyCode)->Bool{
         return keys[Int(keyCode.rawValue)]
     }
-    
 }

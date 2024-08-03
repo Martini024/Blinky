@@ -9,7 +9,6 @@ import MetalKit
 
 class Quandrangle: GameObject {
     init() {
-        super.init(meshType: .quadrangle)
-        self.setName("Quadrangle")
+        super.init(name: "Quandrangle", meshType: .quadrangle)
     }
 }

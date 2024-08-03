@@ -22,7 +22,7 @@ class SceneManager {
     public static func setScene(_ sceneType: SceneType) {
         switch sceneType {
         case .sandbox:
-            _currentScene = SandboxScene()
+            _currentScene = SandboxScene(name: "Sandbox")
         }
     }
     

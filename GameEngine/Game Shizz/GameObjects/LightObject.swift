@@ -12,13 +12,11 @@ class LightObject: GameObject {
     var lightData = LightData()
     
     init(name: String) {
-        super.init(meshType: .none)
-        self.setName(name)
+        super.init(name: name, meshType: .none)
     }
     
-    init(meshType: MeshType, name: String) {
-        super.init(meshType: meshType)
-        self.setName(name)
+    override init(name: String, meshType: MeshType) {
+        super.init(name: name, meshType: meshType)
     }
     
     override func update() {
@@ -30,6 +28,7 @@ class LightObject: GameObject {
 extension LightObject {
     // Light Color
     public func setLightColor(_ color: float3) { self.lightData.color = color }
+    public func setLightColor(_ r: Float,_ g: Float,_ b: Float) { setLightColor(float3(r,g,b)) }
     public func getLightColor() -> float3 { return self.lightData.color }
     
     // Light Brightness

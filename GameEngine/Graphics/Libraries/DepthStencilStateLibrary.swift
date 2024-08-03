@@ -12,7 +12,6 @@ enum DepthStencilStateType {
 }
 
 class DepthStencilStateLibrary: Library<DepthStencilStateType, MTLDepthStencilState> {
-    
     private var _library: [DepthStencilStateType: DepthStencilState] = [:]
     
     override func fillLibrary() {
@@ -29,7 +28,6 @@ protocol DepthStencilState {
 }
 
 class LessDepthStencilState: DepthStencilState {
-    
     var depthStencilState: MTLDepthStencilState!
     
     init() {

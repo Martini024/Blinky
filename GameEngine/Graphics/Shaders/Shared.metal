@@ -4,6 +4,8 @@
 //
 //  Created by Martini Reinherz on 31/10/21.
 //
+#ifndef SHARED_METAL
+#define SHARED_METAL
 
 #include <metal_stdlib>
 using namespace metal;
@@ -22,7 +24,7 @@ struct RasterizerData {
     float totalGameTime;
     
     float3 worldPosition;
-    float3 surfaceNormal;
+    float3 surfaceNormal; 
     float3 toCameraVector;
 };
 
@@ -58,3 +60,5 @@ struct LightData {
     float diffuseIntensity;
     float specularIntensity;
 };
+
+#endif

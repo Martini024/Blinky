@@ -18,7 +18,7 @@ class DebugCamera: Camera {
     }
     
     init() {
-        super.init(cameraType: .debug)
+        super.init(name: "Debug Camera", cameraType: .debug)
     }
     
     override func doUpdate() {

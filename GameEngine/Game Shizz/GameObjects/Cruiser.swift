@@ -9,8 +9,7 @@ import MetalKit
 
 class Cruiser: GameObject {
     init() {
-        super.init(meshType: .cruiser)
-        setName("Cruiser")
+        super.init(name: "Cruiser", meshType: .cruiser)
         setTexture(.cruiser)
     }
 }
