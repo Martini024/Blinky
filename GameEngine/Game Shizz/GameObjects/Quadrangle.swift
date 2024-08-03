@@ -7,8 +7,8 @@
 
 import MetalKit
 
-class Quandrangle: GameObject {
+class Quad: GameObject {
     init() {
-        super.init(name: "Quandrangle", meshType: .quadrangle)
+        super.init(name: "Quad", meshType: .quad)
     }
 }

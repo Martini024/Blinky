@@ -49,7 +49,7 @@ public struct BasicVertexDescriptor: VertexDescriptor {
         
         vertexDescriptor.attributes[3].format = .float3
         vertexDescriptor.attributes[3].bufferIndex = 0
-        vertexDescriptor.attributes[3].offset = float3.size + float4.size + float2.size
+        vertexDescriptor.attributes[3].offset = float3.size + float4.size + float3.size
         
         vertexDescriptor.layouts[0].stride = Vertex.stride
     }

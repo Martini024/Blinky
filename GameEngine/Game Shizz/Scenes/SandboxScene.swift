@@ -7,44 +7,31 @@
 class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
-    var cruiser = Cruiser()
-    var leftSun = Sun()
-    var middleSun = Sun()
-    var rightSun = Sun()
+    var quad = Quad()
+    var sun = Sun()
     
     override func buildScene() {
         debugCamera.setPositionZ(6)
         addCamera(debugCamera)
         
-        leftSun.setPosition(-1, 1, 0)
-        leftSun.setMaterialIsLit(false)
-        leftSun.setMaterialColor(1, 0, 0, 1)
-        leftSun.setLightColor(1, 0, 0)
-        addLight(leftSun)
+        sun.setPosition(0, 2, 0)
+        sun.setMaterialIsLit(false)
+        sun.setLightBrightness(0.3)
+        sun.setLightColor(1, 1, 1)
+        addLight(sun)
         
-        middleSun.setPosition(0, 1, 0)
-        middleSun.setLightBrightness(0.33)
-        middleSun.setMaterialIsLit(false)
-        middleSun.setMaterialColor(1, 1, 1, 1)
-        middleSun.setLightColor(1, 1, 1)
-        addLight(middleSun)
-        
-        rightSun.setPosition(1, 1, 0)
-        rightSun.setMaterialIsLit(false)
-        rightSun.setMaterialColor(0, 0, 1, 1)
-        rightSun.setLightColor(0, 0, 1)
-        addLight(rightSun)
-        
-        cruiser.setMaterialAmbient(0.01)
-        addChild(cruiser)
+        quad.setMaterialAmbient(0.01)
+        quad.setMaterialShininess(10)
+        quad.setMaterialSpecular(5)
+        quad.setTexture(.partyPirateParot)
+        addChild(quad)
     }
     
     override func doUpdate() {
         if (Mouse.isMouseButtonPressed(button: .left)) {
-            cruiser.rotateX(Mouse.getDY() * GameTime.deltaTime)
-            cruiser.rotateY(Mouse.getDX() * GameTime.deltaTime)
+            quad.rotateX(Mouse.getDY() * GameTime.deltaTime)
+            quad.rotateY(Mouse.getDX() * GameTime.deltaTime)
         }
         
-        cruiser.setMaterialShininess(cruiser.getMaterialShininess() + Mouse.getDWheel())
     }
 }

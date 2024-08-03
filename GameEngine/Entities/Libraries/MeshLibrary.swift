@@ -11,7 +11,7 @@ enum MeshType {
     case none
     
     case triangle
-    case quadrangle
+    case quad
     case cube
     
     case cruiser
@@ -25,7 +25,7 @@ class MeshLibrary: Library<MeshType, Mesh> {
         _library.updateValue(NoMesh(), forKey: .none)
         
         _library.updateValue(TriangleMesh(), forKey: .triangle)
-        _library.updateValue(QuadrangleMesh(), forKey: .quadrangle)
+        _library.updateValue(QuadMesh(), forKey: .quad)
         _library.updateValue(CubeMesh(), forKey: .cube)
         
         _library.updateValue(ModelMesh(modelName: "cruiser"), forKey: .cruiser)
@@ -145,15 +145,15 @@ class TriangleMesh: CustomMesh {
     }
 }
 
-class QuadrangleMesh: CustomMesh {
+class QuadMesh: CustomMesh {
     override func createVertices() {
-        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0))
-        addVertex(position: float3(-1, 1, 0), color: float4(0,1,0,1), textureCoordinate: float2(0, 0))
-        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1))
-        
-        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0))
-        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1))
-        addVertex(position: float3( 1,-1, 0), color: float4(1,0,1,1), textureCoordinate: float2(1, 1))
+        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0), normal: float3(0, 0, 1))
+        addVertex(position: float3(-1, 1, 0), color: float4(0,1,0,1), textureCoordinate: float2(0, 0), normal: float3(0, 0, 1))
+        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1), normal: float3(0, 0, 1))
+
+        addVertex(position: float3( 1, 1, 0), color: float4(1,0,0,1), textureCoordinate: float2(1, 0), normal: float3(0, 0, 1))
+        addVertex(position: float3(-1,-1, 0), color: float4(0,0,1,1), textureCoordinate: float2(0, 1), normal: float3(0, 0, 1))
+        addVertex(position: float3( 1,-1, 0), color: float4(1,0,1,1), textureCoordinate: float2(1, 1), normal: float3(0, 0, 1))
     }
 }
 
