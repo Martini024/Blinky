@@ -41,6 +41,7 @@ struct Vertex: Sizable {
     var normal: float3;
 }
 
+extension UInt32: Sizable { }
 extension Int32: Sizable { }
 extension float2: Sizable { }
 extension float3: Sizable { }
