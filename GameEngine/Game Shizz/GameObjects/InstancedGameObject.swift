@@ -51,20 +51,11 @@ extension InstancedGameObject: Renderable {
         // Vertex Shader
         renderCommandEncoder.setVertexBuffer(_modelConstantBuffer, offset: 0, index: 2)
         
-        // Fragment Shader
-        renderCommandEncoder.setFragmentBytes(&_material, length: Material.stride, index: 1)
-        
         _mesh.drawPrimitives(renderCommandEncoder)
     }
 }
 
 extension InstancedGameObject {
-    public func setColor(_ color: float4) {
-        self._material.color = color
-        self._material.useMaterialColor = true
-    }
-    
-    public func setColor(_ r: Float,_ g: Float,_ b: Float,_ a: Float) {
-        setColor(float4(r,g,b,a))
-    }
+    public func setColor(_ color: float4) { self._material.color = color }
+    public func setColor(_ r: Float,_ g: Float,_ b: Float,_ a: Float) { setColor(float4(r,g,b,a)) }
 }

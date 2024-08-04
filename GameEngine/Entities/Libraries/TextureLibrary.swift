@@ -11,6 +11,7 @@ enum TextureType {
     case none
     case partyPirateParot
     case cruiser
+    case suzannes
 }
 
 class TextureLibrary: Library<TextureType, MTLTexture> {

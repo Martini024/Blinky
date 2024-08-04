@@ -60,9 +60,7 @@ struct SceneConstants: Sizable {
 }
 
 struct Material: Sizable {
-    var color = float4(0.8, 0.8, 0.8, 1.0)
-    var useMaterialColor: Bool = false
-    var useTexture: Bool = false
+    var color = float4(0.4, 0.4, 0.4, 1.0)
     var isLit: Bool = true
     
     var ambient: float3 = float3(0.03, 0.03, 0.03)

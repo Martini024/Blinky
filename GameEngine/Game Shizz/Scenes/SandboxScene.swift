@@ -7,30 +7,25 @@
 class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
-    var quad = Quad()
+    var chest = Chest()
     var sun = Sun()
     
     override func buildScene() {
-        debugCamera.setPositionZ(6)
+        debugCamera.setPositionZ(3)
         addCamera(debugCamera)
         
-        sun.setPosition(0, 2, 0)
-        sun.setMaterialIsLit(false)
-        sun.setLightBrightness(0.3)
-        sun.setLightColor(1, 1, 1)
+        sun.setPosition(0, 5, 5)
+        sun.setLightAmbientIntensity(0.04)
         addLight(sun)
         
-        quad.setMaterialAmbient(0.01)
-        quad.setMaterialShininess(10)
-        quad.setMaterialSpecular(5)
-        quad.setTexture(.partyPirateParot)
-        addChild(quad)
+        chest.moveY(-0.5)
+        addChild(chest)
     }
     
     override func doUpdate() {
         if (Mouse.isMouseButtonPressed(button: .left)) {
-            quad.rotateX(Mouse.getDY() * GameTime.deltaTime)
-            quad.rotateY(Mouse.getDX() * GameTime.deltaTime)
+            chest.rotateX(Mouse.getDY() * GameTime.deltaTime)
+            chest.rotateY(Mouse.getDX() * GameTime.deltaTime)
         }
         
     }

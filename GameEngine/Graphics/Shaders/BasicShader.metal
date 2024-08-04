@@ -32,16 +32,12 @@ fragment half4 basic_fragment_shader(RasterizerData rd [[ stage_in ]],
                                      constant int &lightCount [[ buffer(2) ]],
                                      constant LightData *lightDatas [[ buffer(3) ]],
                                      sampler sampler2d [[ sampler(0) ]],
-                                     texture2d<float> texture [[ texture(0)]]) {
+                                     texture2d<float> baseColorMap [[ texture(0)]]) {
     float2 textureCoordinate = rd.textureCoordinate;
-    float4 color;
+    float4 color = material.color;
     
-    if (material.useMaterialColor) {
-        color = material.color;
-    } else if (material.useTexture) {
-        color = texture.sample(sampler2d, textureCoordinate);
-    } else {
-        color = rd.color;
+    if (!is_null_texture(baseColorMap)) {
+        color = baseColorMap.sample(sampler2d, textureCoordinate);
     }
     
     if (material.isLit) {
