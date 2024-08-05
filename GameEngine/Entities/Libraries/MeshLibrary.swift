@@ -27,7 +27,7 @@ class MeshLibrary: Library<MeshType, Mesh> {
         _library.updateValue(NoMesh(), forKey: .none)
         
         _library.updateValue(TriangleMesh(), forKey: .triangle)
-        _library.updateValue(QuadMesh(), forKey: .quad)
+        _library.updateValue(Mesh(modelName: "quad"), forKey: .quad)
         _library.updateValue(CubeMesh(), forKey: .cube)
         
         _library.updateValue(Mesh(modelName: "cruiser"), forKey: .cruiser)
@@ -75,7 +75,9 @@ class Mesh {
         (descriptor.attributes[1] as! MDLVertexAttribute).name = MDLVertexAttributeColor
         (descriptor.attributes[2] as! MDLVertexAttribute).name = MDLVertexAttributeTextureCoordinate
         (descriptor.attributes[3] as! MDLVertexAttribute).name = MDLVertexAttributeNormal
-        
+        (descriptor.attributes[4] as! MDLVertexAttribute).name = MDLVertexAttributeTangent
+        (descriptor.attributes[5] as! MDLVertexAttribute).name = MDLVertexAttributeBitangent
+
         let bufferAllocator = MTKMeshBufferAllocator(device: Engine.device)
         let asset: MDLAsset = MDLAsset(url: assetURL,
                                        vertexDescriptor: descriptor,
@@ -85,13 +87,23 @@ class Mesh {
         
         asset.loadTextures()
         
-        var mtkMeshes: [MTKMesh] = []
         var mdlMeshes: [MDLMesh] = []
-        do{
-            mtkMeshes = try MTKMesh.newMeshes(asset: asset, device: Engine.device).metalKitMeshes
+        do {
             mdlMeshes = try MTKMesh.newMeshes(asset: asset, device: Engine.device).modelIOMeshes
         } catch {
             print("ERROR::LOADING_MESH::__\(modelName)__::\(error)")
+        }
+        
+        var mtkMeshes: [MTKMesh] = []
+        for mdlMesh in mdlMeshes {
+            mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed: MDLVertexAttributeTextureCoordinate, tangentAttributeNamed: MDLVertexAttributeTangent, bitangentAttributeNamed: MDLVertexAttributeBitangent)
+            mdlMesh.vertexDescriptor = descriptor
+            do {
+                let mtkMesh = try MTKMesh(mesh: mdlMesh, device: Engine.device)
+                mtkMeshes.append(mtkMesh)
+            } catch {
+                print("ERROR::LOADING_MDLMESH::__\(modelName)__::\(error)")
+            }
         }
         
         let mtkMesh = mtkMeshes[0]
@@ -113,8 +125,15 @@ class Mesh {
     func addVertex(position: float3,
                    color: float4 = float4(1, 0, 1, 1),
                    textureCoordinate: float2 = float2(repeating: 0),
-                   normal: float3 = float3(0, 1, 0)) {
-        _vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinate, normal: normal))
+                   normal: float3 = float3(0, 1, 0),
+                   tangent: float3 = float3(1, 0, 0),
+                   bitangent: float3 = float3(0, 0, 1)) {
+        _vertices.append(Vertex(position: position, 
+                                color: color,
+                                textureCoordinate: textureCoordinate,
+                                normal: normal,
+                                tangent: tangent,
+                                bitangent: bitangent))
     }
     
     func setInstanceCount(_ count: Int) {
@@ -122,13 +141,17 @@ class Mesh {
     }
     
     func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder,
-                        baseColorTextureType: TextureType = .none, material: Material? = nil) {
+                        material: Material? = nil,
+                        baseColorTextureType: TextureType = .none,
+                        normalMapTextureType: TextureType = .none) {
         if (_vertexBuffer != nil) {
             renderCommandEncoder.setVertexBuffer(_vertexBuffer, offset: 0, index: 0)
             
             if (_submeshes.count > 0) {
                 for submesh in _submeshes {
-                    submesh.applyTextures(renderCommandEncoder: renderCommandEncoder, baseColorTextureType: baseColorTextureType)
+                    submesh.applyTextures(renderCommandEncoder: renderCommandEncoder, 
+                                          baseColorTextureType: baseColorTextureType,
+                                          normalMapTextureType: normalMapTextureType)
                     submesh.applyMaterials(renderCommandEncoder: renderCommandEncoder, material: material)
                     renderCommandEncoder.drawIndexedPrimitives(type: submesh.primitiveType, indexCount: submesh.indexCount, indexType: submesh.indexType, indexBuffer: submesh.indexBuffer, indexBufferOffset: submesh.indexBufferOffset)
                 }
@@ -160,6 +183,7 @@ class Submesh {
     private var _material = Material()
     
     private var _baseColorTexture: MTLTexture!
+    private var _normalMapTexture: MTLTexture!
     
     init(indices: [UInt32]) {
         self._indices = indices
@@ -196,6 +220,9 @@ class Submesh {
         _baseColorTexture = texture(for: .baseColor,
                                     in: mdlMaterial,
                                     textureOrigin: .bottomLeft)
+        _normalMapTexture = texture(for: .tangentSpaceNormal,
+                                    in: mdlMaterial,
+                                    textureOrigin: .bottomLeft)
     }
     
     private func createMaterial(_ mdlMaterial: MDLMaterial) {
@@ -212,11 +239,15 @@ class Submesh {
     }
     
     func applyTextures(renderCommandEncoder: MTLRenderCommandEncoder,
-                       baseColorTextureType: TextureType) {
+                       baseColorTextureType: TextureType,
+                       normalMapTextureType: TextureType) {
         renderCommandEncoder.setFragmentSamplerState(Graphics.samplerStates[.linear], index: 0)
         
         let baseColorTex = baseColorTextureType == .none ? _baseColorTexture : Entities.textures[baseColorTextureType]
         renderCommandEncoder.setFragmentTexture(baseColorTex, index: 0)
+        
+        let normalMapTex = normalMapTextureType == .none ? _normalMapTexture : Entities.textures[normalMapTextureType]
+        renderCommandEncoder.setFragmentTexture(normalMapTex, index: 1)
     }
     
     func applyMaterials(renderCommandEncoder: MTLRenderCommandEncoder,

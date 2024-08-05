@@ -39,6 +39,8 @@ struct Vertex: Sizable {
     var color: float4
     var textureCoordinate: float2
     var normal: float3;
+    var tangent: float3;
+    var bitangent: float3;
 }
 
 extension UInt32: Sizable { }

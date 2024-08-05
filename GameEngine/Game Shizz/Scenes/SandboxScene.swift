@@ -7,7 +7,7 @@
 class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
-    var chest = Chest()
+    var quad = Quad()
     var sun = Sun()
     
     override func buildScene() {
@@ -18,14 +18,15 @@ class SandboxScene: Scene {
         sun.setLightAmbientIntensity(0.04)
         addLight(sun)
         
-        chest.moveY(-0.5)
-        addChild(chest)
+        quad.useBaseColorTexture(.metalPlateDiffuse)
+        quad.useNormalMapTexture(.metalPlateNormal)
+        addChild(quad)
     }
     
     override func doUpdate() {
         if (Mouse.isMouseButtonPressed(button: .left)) {
-            chest.rotateX(Mouse.getDY() * GameTime.deltaTime)
-            chest.rotateY(Mouse.getDX() * GameTime.deltaTime)
+            quad.rotateX(Mouse.getDY() * GameTime.deltaTime)
+            quad.rotateY(Mouse.getDX() * GameTime.deltaTime)
         }
         
     }

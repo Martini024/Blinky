@@ -21,8 +21,11 @@ vertex RasterizerData basic_vertex_shader(const VertexIn vIn [[ stage_in ]],
     rd.textureCoordinate = vIn.textureCoordinate;
     rd.totalGameTime = sceneConstants.totalGameTime;
     rd.worldPosition = worldPosition.xyz;
-    rd.surfaceNormal = (modelConstants.modelMatrix * float4(vIn.normal, 0.0)).xyz;
     rd.toCameraVector = sceneConstants.cameraPosition - worldPosition.xyz;
+    
+    rd.surfaceNormal = normalize(modelConstants.modelMatrix * float4(vIn.normal, 0.0)).xyz;
+    rd.surfaceTangent = normalize(modelConstants.modelMatrix * float4(vIn.tangent, 0.0)).xyz;
+    rd.surfaceBitangent = normalize(modelConstants.modelMatrix * float4(vIn.bitangent, 0.0)).xyz;
     
     return rd;
 }
@@ -32,7 +35,8 @@ fragment half4 basic_fragment_shader(RasterizerData rd [[ stage_in ]],
                                      constant int &lightCount [[ buffer(2) ]],
                                      constant LightData *lightDatas [[ buffer(3) ]],
                                      sampler sampler2d [[ sampler(0) ]],
-                                     texture2d<float> baseColorMap [[ texture(0)]]) {
+                                     texture2d<float> baseColorMap [[ texture(0)]],
+                                     texture2d<float> normalMap [[ texture(1)]]) {
     float2 textureCoordinate = rd.textureCoordinate;
     float4 color = material.color;
     
@@ -42,6 +46,12 @@ fragment half4 basic_fragment_shader(RasterizerData rd [[ stage_in ]],
     
     if (material.isLit) {
         float3 unitNormal = normalize(rd.surfaceNormal);
+        if (!is_null_texture(normalMap)) {
+            float3 sampleNormal = normalMap.sample(sampler2d, textureCoordinate).rgb * 2 - 1;
+            float3x3 TBN = { rd.surfaceTangent, rd.surfaceBitangent, rd.surfaceNormal };
+            unitNormal = TBN * sampleNormal;
+        }
+        
         float3 unitToCameraVector = normalize(rd.toCameraVector);
         
         float3 phongIntensity = Lighting::GetPhongIntensity(material, lightDatas, lightCount,

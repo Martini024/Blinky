@@ -14,6 +14,7 @@ class GameObject: Node {
     
     private var _material: Material? = nil
     private var _baseColorTextureType: TextureType = .none
+    private var _normalMapTextureType: TextureType = .none
     
     init(name: String, meshType: MeshType) {
         super.init(name: name)
@@ -34,12 +35,17 @@ extension GameObject: Renderable {
         // Vertex Shader
         renderCommandEncoder.setVertexBytes(&_modelConstants, length: ModelConstants.stride, index: 2)
         
-        _mesh.drawPrimitives(renderCommandEncoder, baseColorTextureType: _baseColorTextureType, material: _material)
+        _mesh.drawPrimitives(renderCommandEncoder, 
+                             material: _material,
+                             baseColorTextureType: _baseColorTextureType,
+                             normalMapTextureType: _normalMapTextureType)
     }
 }
 
 extension GameObject {
     public func useBaseColorTexture(_ textureType: TextureType) { self._baseColorTextureType = textureType }
     
+    public func useNormalMapTexture(_ textureType: TextureType) { self._normalMapTextureType = textureType }
+
     public func useMaterial(_ material: Material) { _material = material }
 }
