@@ -10,12 +10,8 @@ import MetalKit
 class DebugCamera: Camera {
     private var _zoom: Float = 45.0
     
-    override var projectionMatrix: matrix_float4x4 {
-        return matrix_float4x4.perspective(degreesFov: self._zoom,
-                                           aspectRatio: Renderer.aspectRatio,
-                                           near: 0.1,
-                                           far: 1000)
-    }
+    private var _moveSpeed: Float = 4.0
+    private var _rotateSpeed: Float = 1.0
     
     init() {
         super.init(name: "Debug Camera", cameraType: .debug)
@@ -23,21 +19,27 @@ class DebugCamera: Camera {
     
     override func doUpdate() {
         if (Keyboard.isKeyPressed(.leftArrow)) {
-            self.moveX(GameTime.deltaTime)
+            self.moveX(GameTime.deltaTime * _moveSpeed)
         }
         
         if (Keyboard.isKeyPressed(.rightArrow)) {
-            self.moveX(-GameTime.deltaTime)
+            self.moveX(-GameTime.deltaTime * _moveSpeed)
         }
         
         if (Keyboard.isKeyPressed(.upArrow)) {
-            self.moveY(-GameTime.deltaTime)
+            self.moveY(-GameTime.deltaTime * _moveSpeed)
         }
         
         if (Keyboard.isKeyPressed(.downArrow)) {
-            self.moveY(GameTime.deltaTime)
+            self.moveY(GameTime.deltaTime * _moveSpeed)
         }
         
-        self._zoom -= Mouse.getDWheel()
+        if (Mouse.isMouseButtonPressed(button: .right)) {
+            self.rotate(Mouse.getDY() * GameTime.deltaTime * _rotateSpeed,
+                        Mouse.getDX() * GameTime.deltaTime * _rotateSpeed,
+                        0)
+        }
+        
+        self.zoom(-Mouse.getDWheel())
     }
 }
