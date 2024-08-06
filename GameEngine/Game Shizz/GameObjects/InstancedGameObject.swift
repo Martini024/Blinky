@@ -41,6 +41,12 @@ class InstancedGameObject: Node {
         }
         super.update()
     }
+    
+    func updateNodes(_ transform: (Node, Int) -> ()) {
+        for (i, node) in _nodes.enumerated() {
+            transform(node, i)
+        }
+    }
 }
 
 extension InstancedGameObject: Renderable {
