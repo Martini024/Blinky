@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "591A960D2715D865003A1860"
-               BuildableName = "Game Engine.app"
-               BlueprintName = "Game Engine"
-               ReferencedContainer = "container:Game Engine.xcodeproj">
+               BuildableName = "Blinky.app"
+               BlueprintName = "Blinky"
+               ReferencedContainer = "container:Blinky.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,6 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "59B4C8F02C674224001B040F"
+               BuildableName = "CoreTests.xctest"
+               BlueprintName = "CoreTests"
+               ReferencedContainer = "container:Blinky.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -46,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591A960D2715D865003A1860"
-            BuildableName = "Game Engine.app"
-            BlueprintName = "Game Engine"
-            ReferencedContainer = "container:Game Engine.xcodeproj">
+            BuildableName = "Blinky.app"
+            BlueprintName = "Blinky"
+            ReferencedContainer = "container:Blinky.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "591A960D2715D865003A1860"
-            BuildableName = "Game Engine.app"
-            BlueprintName = "Game Engine"
-            ReferencedContainer = "container:Game Engine.xcodeproj">
+            BuildableName = "Blinky.app"
+            BlueprintName = "Blinky"
+            ReferencedContainer = "container:Blinky.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
