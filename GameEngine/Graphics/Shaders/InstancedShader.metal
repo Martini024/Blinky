@@ -1,10 +1,3 @@
-//
-//  InstancedShader.metal
-//  Game Engine
-//
-//  Created by Martini Reinherz on 31/10/21.
-//
-
 #include <metal_stdlib>
 #include "Shared.metal"
 using namespace metal;

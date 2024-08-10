@@ -1,9 +1,3 @@
-//
-//  Lighting.metal
-//  Game Engine
-//
-//  Created by Martini Reinherz on 3/8/24.
-//
 #ifndef LIGHTING_METAL
 #define LIGHTING_METAL
 

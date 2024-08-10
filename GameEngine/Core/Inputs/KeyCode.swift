@@ -1,10 +1,3 @@
-//
-//  KeyCodes.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 26/10/21.
-//
-
 enum KeyCode: UInt16 {
     //Special Chars
     case space             = 0x31

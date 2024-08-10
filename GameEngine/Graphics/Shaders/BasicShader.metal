@@ -1,10 +1,3 @@
-//
-//  MyShaders.metal
-//  GameEngine
-//
-//  Created by Martini Reinherz on 12/10/21.
-//
-
 #include <metal_stdlib>
 #include "Shared.metal"
 #include "Lighting.metal"

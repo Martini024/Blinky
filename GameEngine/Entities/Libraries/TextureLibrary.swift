@@ -1,31 +1,13 @@
-//
-//  TextureLibrary.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 31/10/21.
-//
-
 import MetalKit
 
 enum TextureType {
     case none
-    case partyPirateParot
-    case cruiser
-    case suzannes
-    
-    case metalPlateDiffuse
-    case metalPlateNormal
 }
 
 class TextureLibrary: Library<TextureType, MTLTexture> {
     private var library: [TextureType : Texture] = [:]
     
-    override func fillLibrary() {
-        library.updateValue(Texture("PartyPirateParot"), forKey: .partyPirateParot)
-        library.updateValue(Texture("cruiser", ext: "bmp", origin: .bottomLeft), forKey: .cruiser)
-        library.updateValue(Texture("metal_plate_diff"), forKey: .metalPlateDiffuse)
-        library.updateValue(Texture("metal_plate_nor"), forKey: .metalPlateNormal)
-    }
+    override func fillLibrary() { }
     
     override subscript(_ type: TextureType) -> MTLTexture? {
         return library[type]?.texture

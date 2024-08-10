@@ -1,10 +1,3 @@
-//
-//  ShaderLibrary.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 3/8/24.
-//
-
 import Foundation
 import MetalKit
 

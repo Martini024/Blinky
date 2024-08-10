@@ -1,10 +1,3 @@
-//
-//  MeshLibrary.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 23/10/21.
-//
-
 import MetalKit
 
 enum MeshType {
@@ -13,11 +6,7 @@ enum MeshType {
     case triangle
     case quad
     case cube
-    
     case sphere
-    case cruiser
-    case suzannes
-    case chest
 }
 
 class MeshLibrary: Library<MeshType, Mesh> {
@@ -27,13 +16,9 @@ class MeshLibrary: Library<MeshType, Mesh> {
         _library.updateValue(NoMesh(), forKey: .none)
         
         _library.updateValue(TriangleMesh(), forKey: .triangle)
-        _library.updateValue(Mesh(modelName: "quad"), forKey: .quad)
+        _library.updateValue(QuadMesh(), forKey: .quad)
         _library.updateValue(CubeMesh(), forKey: .cube)
-        
-        _library.updateValue(Mesh(modelName: "cruiser"), forKey: .cruiser)
         _library.updateValue(Mesh(modelName: "sphere"), forKey: .sphere)
-        _library.updateValue(Mesh(modelName: "Suzannes"), forKey: .suzannes)
-        _library.updateValue(Mesh(modelName: "chest"), forKey: .chest)
     }
     
     override subscript(type: MeshType) -> Mesh {

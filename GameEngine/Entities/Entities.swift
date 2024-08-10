@@ -1,10 +1,3 @@
-//
-//  Entities.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 29/10/21.
-//
-
 import Foundation
 
 class Entities {

@@ -1,10 +1,3 @@
-//
-//  InstancedGameObject.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 28/10/21.
-//
-
 import MetalKit
 
 class InstancedGameObject: Node {

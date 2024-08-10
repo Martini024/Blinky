@@ -1,10 +1,3 @@
-//
-//  CameraManager.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 26/10/21.
-//
-
 import MetalKit
 
 class CameraManager {

@@ -1,9 +1,3 @@
-//
-//  SandboxScene.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 23/10/21.
-//
 class SandboxScene: Scene {
     
     var debugCamera = DebugCamera()
@@ -18,8 +12,6 @@ class SandboxScene: Scene {
         sun.setLightAmbientIntensity(0.04)
         addLight(sun)
         
-        quad.useBaseColorTexture(.metalPlateDiffuse)
-        quad.useNormalMapTexture(.metalPlateNormal)
         addChild(quad)
     }
     

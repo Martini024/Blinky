@@ -1,9 +1,3 @@
-//
-//  Shared.metal
-//  Game Engine
-//
-//  Created by Martini Reinherz on 31/10/21.
-//
 #ifndef SHARED_METAL
 #define SHARED_METAL
 

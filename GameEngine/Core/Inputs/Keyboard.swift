@@ -1,10 +1,3 @@
-//
-//  Keyboard.swift
-//  Game Engine
-//
-//  Created by Martini Reinherz on 26/10/21.
-//
-
 class Keyboard {
     private static var keyCount: Int = 256
     private static var keys = [Bool].init(repeating: false, count: keyCount)
