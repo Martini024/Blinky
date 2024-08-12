@@ -1,17 +1,14 @@
-//
-//  EditorApp.swift
-//  Editor
-//
-//  Created by Martini Reinherz on 10/8/24.
-//
-
 import SwiftUI
 
 @main
 struct EditorApp: App {
-    var body: some Scene {
+    let persistenceController = PersistenceController.shared
+
+    var body: some SwiftUI.Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .frame(minWidth: 1024, idealWidth: 1024, maxWidth: .infinity, minHeight: 720, idealHeight: 720, maxHeight: .infinity)
         }
     }
 }

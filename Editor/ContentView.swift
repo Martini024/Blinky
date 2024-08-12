@@ -1,24 +1,28 @@
 //
 //  ContentView.swift
-//  Editor
+//  GameEngine
 //
-//  Created by Martini Reinherz on 10/8/24.
+//  Created by Martini Reinherz on 12/10/21.
 //
 
 import SwiftUI
+import CoreData
+import MetalKit
+import BlinkyEngine
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        GeometryReader { geometry in
+            MetalView(geometry.size)
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
 }
