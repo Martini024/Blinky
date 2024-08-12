@@ -8,21 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		59B4C8EC2C674224001B040F /* Engine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C8EB2C674224001B040F /* Engine.docc */; };
-		59B4C8F22C674224001B040F /* BlinkyEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B4C8E82C674224001B040F /* BlinkyEngine.framework */; };
-		59B4C8F92C674224001B040F /* EngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C8F82C674224001B040F /* EngineTests.swift */; };
 		59B4C96A2C674317001B040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C9692C674317001B040F /* Assets.xcassets */; };
 		59B4C96D2C674317001B040F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C96C2C674317001B040F /* Preview Assets.xcassets */; };
-		59B4C9782C674317001B040F /* EditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9772C674317001B040F /* EditorTests.swift */; };
-		59B4C9822C674317001B040F /* EditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9812C674317001B040F /* EditorUITests.swift */; };
-		59B4C9842C674317001B040F /* EditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9832C674317001B040F /* EditorUITestsLaunchTests.swift */; };
 		59B4C9952C6745C6001B040F /* EngineExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9942C6745C6001B040F /* EngineExampleApp.swift */; };
 		59B4C9972C6745C6001B040F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9962C6745C6001B040F /* ContentView.swift */; };
 		59B4C9992C6745C7001B040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C9982C6745C7001B040F /* Assets.xcassets */; };
 		59B4C99C2C6745C7001B040F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C99B2C6745C7001B040F /* Preview Assets.xcassets */; };
-		59B4C9A82C6745EC001B040F /* EditorExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9A72C6745EC001B040F /* EditorExampleApp.swift */; };
-		59B4C9AA2C6745EC001B040F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C9A92C6745EC001B040F /* ContentView.swift */; };
-		59B4C9AC2C6745ED001B040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C9AB2C6745ED001B040F /* Assets.xcassets */; };
-		59B4C9AF2C6745ED001B040F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C9AE2C6745ED001B040F /* Preview Assets.xcassets */; };
 		59CC54C52C6919D6007BF8C5 /* BlinkyEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B4C8E82C674224001B040F /* BlinkyEngine.framework */; };
 		59CC54EA2C691B4C007BF8C5 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54CE2C691B4C007BF8C5 /* Camera.swift */; };
 		59CC54EB2C691B4D007BF8C5 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54CF2C691B4C007BF8C5 /* CameraManager.swift */; };
@@ -73,27 +64,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		59B4C8F32C674224001B040F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 591A96062715D865003A1860 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 59B4C8E72C674224001B040F;
-			remoteInfo = Core;
-		};
-		59B4C9742C674317001B040F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 591A96062715D865003A1860 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 59B4C9622C674316001B040F;
-			remoteInfo = Editor;
-		};
-		59B4C97E2C674317001B040F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 591A96062715D865003A1860 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 59B4C9622C674316001B040F;
-			remoteInfo = Editor;
-		};
 		59CC54C72C6919D7007BF8C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 591A96062715D865003A1860 /* Project object */;
@@ -133,28 +103,15 @@
 		5991467D272DB37C006E5C09 /* InstancedShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = InstancedShader.metal; sourceTree = "<group>"; };
 		59B4C8E82C674224001B040F /* BlinkyEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BlinkyEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B4C8EB2C674224001B040F /* Engine.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Engine.docc; sourceTree = "<group>"; };
-		59B4C8F12C674224001B040F /* BlinkyEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkyEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59B4C8F82C674224001B040F /* EngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineTests.swift; sourceTree = "<group>"; };
 		59B4C9632C674316001B040F /* BlinkyEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlinkyEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B4C9692C674317001B040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59B4C96C2C674317001B040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		59B4C9732C674317001B040F /* BlinkyEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkyEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59B4C9772C674317001B040F /* EditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTests.swift; sourceTree = "<group>"; };
-		59B4C97D2C674317001B040F /* BlinkyEditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlinkyEditorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		59B4C9812C674317001B040F /* EditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorUITests.swift; sourceTree = "<group>"; };
-		59B4C9832C674317001B040F /* EditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		59B4C9922C6745C6001B040F /* BlinkyEngineExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlinkyEngineExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B4C9942C6745C6001B040F /* EngineExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineExampleApp.swift; sourceTree = "<group>"; };
 		59B4C9962C6745C6001B040F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		59B4C9982C6745C7001B040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59B4C99B2C6745C7001B040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		59B4C99D2C6745C7001B040F /* EngineExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EngineExample.entitlements; sourceTree = "<group>"; };
-		59B4C9A52C6745EC001B040F /* BlinkyEditorExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlinkyEditorExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		59B4C9A72C6745EC001B040F /* EditorExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorExampleApp.swift; sourceTree = "<group>"; };
-		59B4C9A92C6745EC001B040F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		59B4C9AB2C6745ED001B040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		59B4C9AE2C6745ED001B040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		59B4C9B02C6745ED001B040F /* EditorExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EditorExample.entitlements; sourceTree = "<group>"; };
 		59CC54A82C69066D007BF8C5 /* Game Engine.mindnode */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Game Engine.mindnode"; sourceTree = "<group>"; };
 		59CC54AB2C690691007BF8C5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		59CC54C32C691969007BF8C5 /* Editor.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Editor.entitlements; sourceTree = "<group>"; };
@@ -187,14 +144,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C8EE2C674224001B040F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C8F22C674224001B040F /* BlinkyEngine.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C9602C674316001B040F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -203,28 +152,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C9702C674317001B040F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		59B4C97A2C674317001B040F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C98F2C6745C6001B040F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		59B4C9A22C6745EC001B040F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -237,14 +165,10 @@
 		591A96052715D865003A1860 = {
 			isa = PBXGroup;
 			children = (
-				59CC54A92C69066D007BF8C5 /* Documents */,
 				59B4C8E92C674224001B040F /* Engine */,
-				59B4C8F72C674224001B040F /* EngineTests */,
 				59B4C9932C6745C6001B040F /* EngineExample */,
 				59B4C9642C674316001B040F /* Editor */,
-				59B4C9762C674317001B040F /* EditorTests */,
-				59B4C9802C674317001B040F /* EditorUITests */,
-				59B4C9A62C6745EC001B040F /* EditorExample */,
+				59CC54A92C69066D007BF8C5 /* Documents */,
 				591A960F2715D866003A1860 /* Products */,
 				59CC54C42C6919D6007BF8C5 /* Frameworks */,
 			);
@@ -254,12 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				59B4C8E82C674224001B040F /* BlinkyEngine.framework */,
-				59B4C8F12C674224001B040F /* BlinkyEngineTests.xctest */,
 				59B4C9632C674316001B040F /* BlinkyEditor.app */,
-				59B4C9732C674317001B040F /* BlinkyEditorTests.xctest */,
-				59B4C97D2C674317001B040F /* BlinkyEditorUITests.xctest */,
 				59B4C9922C6745C6001B040F /* BlinkyEngineExamples.app */,
-				59B4C9A52C6745EC001B040F /* BlinkyEditorExamples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,14 +287,6 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
-		59B4C8F72C674224001B040F /* EngineTests */ = {
-			isa = PBXGroup;
-			children = (
-				59B4C8F82C674224001B040F /* EngineTests.swift */,
-			);
-			path = EngineTests;
-			sourceTree = "<group>";
-		};
 		59B4C9642C674316001B040F /* Editor */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,23 +310,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		59B4C9762C674317001B040F /* EditorTests */ = {
-			isa = PBXGroup;
-			children = (
-				59B4C9772C674317001B040F /* EditorTests.swift */,
-			);
-			path = EditorTests;
-			sourceTree = "<group>";
-		};
-		59B4C9802C674317001B040F /* EditorUITests */ = {
-			isa = PBXGroup;
-			children = (
-				59B4C9812C674317001B040F /* EditorUITests.swift */,
-				59B4C9832C674317001B040F /* EditorUITestsLaunchTests.swift */,
-			);
-			path = EditorUITests;
-			sourceTree = "<group>";
-		};
 		59B4C9932C6745C6001B040F /* EngineExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,26 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				59B4C99B2C6745C7001B040F /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		59B4C9A62C6745EC001B040F /* EditorExample */ = {
-			isa = PBXGroup;
-			children = (
-				59B4C9A72C6745EC001B040F /* EditorExampleApp.swift */,
-				59B4C9A92C6745EC001B040F /* ContentView.swift */,
-				59B4C9AB2C6745ED001B040F /* Assets.xcassets */,
-				59B4C9B02C6745ED001B040F /* EditorExample.entitlements */,
-				59B4C9AD2C6745ED001B040F /* Preview Content */,
-			);
-			path = EditorExample;
-			sourceTree = "<group>";
-		};
-		59B4C9AD2C6745ED001B040F /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				59B4C9AE2C6745ED001B040F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -600,24 +475,6 @@
 			productReference = 59B4C8E82C674224001B040F /* BlinkyEngine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		59B4C8F02C674224001B040F /* BlinkyEngineTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 59B4C9032C674224001B040F /* Build configuration list for PBXNativeTarget "BlinkyEngineTests" */;
-			buildPhases = (
-				59B4C8ED2C674224001B040F /* Sources */,
-				59B4C8EE2C674224001B040F /* Frameworks */,
-				59B4C8EF2C674224001B040F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				59B4C8F42C674224001B040F /* PBXTargetDependency */,
-			);
-			name = BlinkyEngineTests;
-			productName = CoreTests;
-			productReference = 59B4C8F12C674224001B040F /* BlinkyEngineTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		59B4C9622C674316001B040F /* BlinkyEditor */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59B4C9852C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditor" */;
@@ -636,42 +493,6 @@
 			productReference = 59B4C9632C674316001B040F /* BlinkyEditor.app */;
 			productType = "com.apple.product-type.application";
 		};
-		59B4C9722C674317001B040F /* BlinkyEditorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 59B4C9882C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorTests" */;
-			buildPhases = (
-				59B4C96F2C674317001B040F /* Sources */,
-				59B4C9702C674317001B040F /* Frameworks */,
-				59B4C9712C674317001B040F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				59B4C9752C674317001B040F /* PBXTargetDependency */,
-			);
-			name = BlinkyEditorTests;
-			productName = EditorTests;
-			productReference = 59B4C9732C674317001B040F /* BlinkyEditorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		59B4C97C2C674317001B040F /* BlinkyEditorUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 59B4C98B2C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorUITests" */;
-			buildPhases = (
-				59B4C9792C674317001B040F /* Sources */,
-				59B4C97A2C674317001B040F /* Frameworks */,
-				59B4C97B2C674317001B040F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				59B4C97F2C674317001B040F /* PBXTargetDependency */,
-			);
-			name = BlinkyEditorUITests;
-			productName = EditorUITests;
-			productReference = 59B4C97D2C674317001B040F /* BlinkyEditorUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		59B4C9912C6745C6001B040F /* BlinkyEngineExamples */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59B4C99E2C6745C7001B040F /* Build configuration list for PBXNativeTarget "BlinkyEngineExamples" */;
@@ -689,23 +510,6 @@
 			productReference = 59B4C9922C6745C6001B040F /* BlinkyEngineExamples.app */;
 			productType = "com.apple.product-type.application";
 		};
-		59B4C9A42C6745EC001B040F /* BlinkyEditorExamples */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 59B4C9B12C6745ED001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorExamples" */;
-			buildPhases = (
-				59B4C9A12C6745EC001B040F /* Sources */,
-				59B4C9A22C6745EC001B040F /* Frameworks */,
-				59B4C9A32C6745EC001B040F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BlinkyEditorExamples;
-			productName = EditorExample;
-			productReference = 59B4C9A52C6745EC001B040F /* BlinkyEditorExamples.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -719,26 +523,11 @@
 					59B4C8E72C674224001B040F = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					59B4C8F02C674224001B040F = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 591A960D2715D865003A1860;
-					};
 					59B4C9622C674316001B040F = {
 						CreatedOnToolsVersion = 15.4;
 						LastSwiftMigration = 1540;
 					};
-					59B4C9722C674317001B040F = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 59B4C9622C674316001B040F;
-					};
-					59B4C97C2C674317001B040F = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 59B4C9622C674316001B040F;
-					};
 					59B4C9912C6745C6001B040F = {
-						CreatedOnToolsVersion = 15.4;
-					};
-					59B4C9A42C6745EC001B040F = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
@@ -757,24 +546,13 @@
 			projectRoot = "";
 			targets = (
 				59B4C8E72C674224001B040F /* BlinkyEngine */,
-				59B4C8F02C674224001B040F /* BlinkyEngineTests */,
 				59B4C9912C6745C6001B040F /* BlinkyEngineExamples */,
 				59B4C9622C674316001B040F /* BlinkyEditor */,
-				59B4C9722C674317001B040F /* BlinkyEditorTests */,
-				59B4C97C2C674317001B040F /* BlinkyEditorUITests */,
-				59B4C9A42C6745EC001B040F /* BlinkyEditorExamples */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		59B4C8EF2C674224001B040F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C9612C674316001B040F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -784,35 +562,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C9712C674317001B040F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		59B4C97B2C674317001B040F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C9902C6745C6001B040F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				59B4C99C2C6745C7001B040F /* Preview Assets.xcassets in Resources */,
 				59B4C9992C6745C7001B040F /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		59B4C9A32C6745EC001B040F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C9AF2C6745ED001B040F /* Preview Assets.xcassets in Resources */,
-				59B4C9AC2C6745ED001B040F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,14 +627,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C8ED2C674224001B040F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C8F92C674224001B040F /* EngineTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C95F2C674316001B040F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -895,23 +642,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C96F2C674317001B040F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C9782C674317001B040F /* EditorTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		59B4C9792C674317001B040F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C9822C674317001B040F /* EditorUITests.swift in Sources */,
-				59B4C9842C674317001B040F /* EditorUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59B4C98E2C6745C6001B040F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -921,33 +651,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		59B4C9A12C6745EC001B040F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				59B4C9AA2C6745EC001B040F /* ContentView.swift in Sources */,
-				59B4C9A82C6745EC001B040F /* EditorExampleApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		59B4C8F42C674224001B040F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 59B4C8E72C674224001B040F /* BlinkyEngine */;
-			targetProxy = 59B4C8F32C674224001B040F /* PBXContainerItemProxy */;
-		};
-		59B4C9752C674317001B040F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 59B4C9622C674316001B040F /* BlinkyEditor */;
-			targetProxy = 59B4C9742C674317001B040F /* PBXContainerItemProxy */;
-		};
-		59B4C97F2C674317001B040F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 59B4C9622C674316001B040F /* BlinkyEditor */;
-			targetProxy = 59B4C97E2C674317001B040F /* PBXContainerItemProxy */;
-		};
 		59CC54C82C6919D7007BF8C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 59B4C8E72C674224001B040F /* BlinkyEngine */;
@@ -1162,51 +868,6 @@
 			};
 			name = Release;
 		};
-		59B4C9042C674224001B040F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.engine-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blinky.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Blinky";
-			};
-			name = Debug;
-		};
-		59B4C9052C674224001B040F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.engine-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blinky.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Blinky";
-			};
-			name = Release;
-		};
 		59B4C9862C674317001B040F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1274,98 +935,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		59B4C9892C674317001B040F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Editor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Editor";
-			};
-			name = Debug;
-		};
-		59B4C98A2C674317001B040F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Editor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Editor";
-			};
-			name = Release;
-		};
-		59B4C98C2C674317001B040F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-ui-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Editor;
-			};
-			name = Debug;
-		};
-		59B4C98D2C674317001B040F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-ui-tests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Editor;
 			};
 			name = Release;
 		};
@@ -1440,71 +1009,6 @@
 			};
 			name = Release;
 		};
-		59B4C9B22C6745ED001B040F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = EditorExample/EditorExample.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EditorExample/Preview Content\"";
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-examples";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		59B4C9B32C6745ED001B040F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_ENTITLEMENTS = EditorExample/EditorExample.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"EditorExample/Preview Content\"";
-				DEVELOPMENT_TEAM = TW43N5T64D;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.martini.blinky.editor-examples";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1526,15 +1030,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59B4C9032C674224001B040F /* Build configuration list for PBXNativeTarget "BlinkyEngineTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				59B4C9042C674224001B040F /* Debug */,
-				59B4C9052C674224001B040F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		59B4C9852C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1544,38 +1039,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59B4C9882C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				59B4C9892C674317001B040F /* Debug */,
-				59B4C98A2C674317001B040F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		59B4C98B2C674317001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				59B4C98C2C674317001B040F /* Debug */,
-				59B4C98D2C674317001B040F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		59B4C99E2C6745C7001B040F /* Build configuration list for PBXNativeTarget "BlinkyEngineExamples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59B4C99F2C6745C7001B040F /* Debug */,
 				59B4C9A02C6745C7001B040F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		59B4C9B12C6745ED001B040F /* Build configuration list for PBXNativeTarget "BlinkyEditorExamples" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				59B4C9B22C6745ED001B040F /* Debug */,
-				59B4C9B32C6745ED001B040F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
