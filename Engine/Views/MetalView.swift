@@ -22,11 +22,12 @@ public struct MetalView: NSViewRepresentable {
     public func makeCoordinator() -> Renderer {
         let device = MTLCreateSystemDefaultDevice()
         mtkView.device = device
+        let renderer = Renderer(frame)
         Engine.initialize(device: device!)
         mtkView.clearColor = Preferences.clearColor
         mtkView.colorPixelFormat = Preferences.mainPixelFormat
         mtkView.depthStencilPixelFormat = Preferences.mainDepthPixelFormat
-        return Renderer(frame)
+        return renderer
     }
 }
 

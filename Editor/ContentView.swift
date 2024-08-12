@@ -15,7 +15,10 @@ struct ContentView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            MetalView(geometry.size)
+            HStack {
+                HierarchyPanel()
+                MetalView(geometry.size)
+            }
         }
     }
 }

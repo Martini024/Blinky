@@ -23,7 +23,7 @@ open class Node {
         self._id = UUID().uuidString
     }
     
-    func addChild(_ child: Node) {
+    public func addChild(_ child: Node) {
         children.append(child)
     }
     

@@ -21,6 +21,10 @@ class LightManager {
         var lightDatas = gatherLightData()
         var lightCount = lightDatas.count
         renderCommandEncoder.setFragmentBytes(&lightCount, length: Int32.size, index: 2)
-        renderCommandEncoder.setFragmentBytes(&lightDatas, length: LightData.stride(lightCount), index: 3)
+        if (lightCount > 0) {
+            renderCommandEncoder.setFragmentBytes(&lightDatas, length: LightData.stride(lightCount), index: 3)
+        } else {
+            renderCommandEncoder.setFragmentBytes(&lightDatas, length: LightData.stride(), index: 3)
+        }
     }
 }

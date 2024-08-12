@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		595C46912C6A2AAC00D8BFE5 /* HierarchyContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595C468E2C6A2AAC00D8BFE5 /* HierarchyContextMenu.swift */; };
+		595C46922C6A2AAC00D8BFE5 /* HierarchyPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595C468F2C6A2AAC00D8BFE5 /* HierarchyPanel.swift */; };
+		595C46942C6A2E5D00D8BFE5 /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595C46932C6A2E5D00D8BFE5 /* SandboxScene.swift */; };
 		59B4C8EC2C674224001B040F /* Engine.docc in Sources */ = {isa = PBXBuildFile; fileRef = 59B4C8EB2C674224001B040F /* Engine.docc */; };
 		59B4C96A2C674317001B040F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C9692C674317001B040F /* Assets.xcassets */; };
 		59B4C96D2C674317001B040F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59B4C96C2C674317001B040F /* Preview Assets.xcassets */; };
@@ -97,6 +100,9 @@
 		595B479C2728423D00BC2F02 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		595B479E2728427B00BC2F02 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		595B47A02728473200BC2F02 /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
+		595C468E2C6A2AAC00D8BFE5 /* HierarchyContextMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HierarchyContextMenu.swift; sourceTree = "<group>"; };
+		595C468F2C6A2AAC00D8BFE5 /* HierarchyPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HierarchyPanel.swift; sourceTree = "<group>"; };
+		595C46932C6A2E5D00D8BFE5 /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
 		595F3872272E853B008884E1 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
 		595F3883272EDA1D008884E1 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
 		5991467B272DAF7C006E5C09 /* Shared.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shared.metal; sourceTree = "<group>"; };
@@ -265,6 +271,16 @@
 			path = Inputs;
 			sourceTree = "<group>";
 		};
+		595C46902C6A2AAC00D8BFE5 /* HierarchyPanel */ = {
+			isa = PBXGroup;
+			children = (
+				595C468E2C6A2AAC00D8BFE5 /* HierarchyContextMenu.swift */,
+				595C468F2C6A2AAC00D8BFE5 /* HierarchyPanel.swift */,
+			);
+			name = HierarchyPanel;
+			path = HierarchyPanel/HierarchyPanel;
+			sourceTree = "<group>";
+		};
 		595F386D272E7F8D008884E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +308,7 @@
 			children = (
 				591A96112715D866003A1860 /* EditorApp.swift */,
 				591A96132715D866003A1860 /* ContentView.swift */,
+				595C46902C6A2AAC00D8BFE5 /* HierarchyPanel */,
 				59572485272429B400F3929B /* GameObjects */,
 				59CC54BA2C690D29007BF8C5 /* Types */,
 				591A96272715D886003A1860 /* Models */,
@@ -414,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				59CC54E02C691B4C007BF8C5 /* Scene.swift */,
+				595C46932C6A2E5D00D8BFE5 /* SandboxScene.swift */,
 				59CC54E12C691B4C007BF8C5 /* SceneManager.swift */,
 			);
 			path = Scenes;
@@ -617,6 +635,7 @@
 				59CC54F22C691B4D007BF8C5 /* GameObject.swift in Sources */,
 				59CC54FA2C691B4D007BF8C5 /* MetalTypes.swift in Sources */,
 				59CC54ED2C691B4D007BF8C5 /* MeshLibrary.swift in Sources */,
+				595C46942C6A2E5D00D8BFE5 /* SandboxScene.swift in Sources */,
 				59CC54EA2C691B4C007BF8C5 /* Camera.swift in Sources */,
 				59CC54F32C691B4D007BF8C5 /* InstancedGameObject.swift in Sources */,
 				59CC54EF2C691B4D007BF8C5 /* Entities.swift in Sources */,
@@ -631,7 +650,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				595C46912C6A2AAC00D8BFE5 /* HierarchyContextMenu.swift in Sources */,
 				59CE5BA12C6A02350011CC06 /* GameEngine.xcdatamodeld in Sources */,
+				595C46922C6A2AAC00D8BFE5 /* HierarchyPanel.swift in Sources */,
 				59CC551E2C691D1D007BF8C5 /* Persistence.swift in Sources */,
 				59CC55182C691C1B007BF8C5 /* EditorApp.swift in Sources */,
 				59CC55192C691C1B007BF8C5 /* ContentView.swift in Sources */,
@@ -802,6 +823,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -845,6 +867,7 @@
 				ENABLE_MODULE_VERIFIER = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -887,6 +910,7 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -923,6 +947,7 @@
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_MetalCaptureEnabled = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

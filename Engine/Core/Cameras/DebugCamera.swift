@@ -1,13 +1,18 @@
 import MetalKit
 
 public class DebugCamera: Camera {
-    private var _zoom: Float = 45.0
+    private var _projectionMatrix = matrix_identity_float4x4
+    override var projectionMatrix: matrix_float4x4 { return _projectionMatrix }
     
     private var _moveSpeed: Float = 4.0
     private var _rotateSpeed: Float = 1.0
     
     init() {
         super.init(name: "Debug Camera", cameraType: .debug)
+        _projectionMatrix = matrix_float4x4.perspective(degreesFov: 45.0,
+                                                        aspectRatio: Renderer.aspectRatio,
+                                                        near: 0.1,
+                                                        far: 1000)
     }
     
     public override func doUpdate() {
@@ -33,6 +38,6 @@ public class DebugCamera: Camera {
                         0)
         }
         
-        self.zoom(-Mouse.getDWheel())
+        self.moveZ(-Mouse.getDWheel() * 0.1)
     }
 }
