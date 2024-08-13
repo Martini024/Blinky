@@ -118,7 +118,6 @@
 		59B4C9982C6745C7001B040F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59B4C99B2C6745C7001B040F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		59B4C99D2C6745C7001B040F /* EngineExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EngineExample.entitlements; sourceTree = "<group>"; };
-		59CC54A82C69066D007BF8C5 /* Game Engine.mindnode */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = "Game Engine.mindnode"; sourceTree = "<group>"; };
 		59CC54AB2C690691007BF8C5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		59CC54C32C691969007BF8C5 /* Editor.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Editor.entitlements; sourceTree = "<group>"; };
 		59CC54CE2C691B4C007BF8C5 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -350,7 +349,6 @@
 		59CC54A92C69066D007BF8C5 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				59CC54A82C69066D007BF8C5 /* Game Engine.mindnode */,
 				59CC54AB2C690691007BF8C5 /* README.md */,
 			);
 			path = Documents;
