@@ -5,6 +5,7 @@ public class Renderer: NSObject {
     public static var aspectRatio: Float {
         screenSize.x / screenSize.y
     }
+    static var lastFrameTime: Float = 0
     
     init(_ frame: CGSize) {
         super.init()
@@ -13,7 +14,7 @@ public class Renderer: NSObject {
 }
 
 extension Renderer: MTKViewDelegate {
-    
+
     public func updateScreenSize(_ frame: CGSize) {
         Renderer.screenSize = float2(Float(frame.width), Float(frame.height))
     }
@@ -31,7 +32,17 @@ extension Renderer: MTKViewDelegate {
         renderCommandEncoder?.label = "Fist Render Command Encoder"
         
         renderCommandEncoder?.pushDebugGroup("Starting Render")
-        SceneManager.tickScene(renderCommandEncoder: renderCommandEncoder!, deltaTime: 1 / Float(view.preferredFramesPerSecond))
+        
+        let currentTime = Float(CFAbsoluteTimeGetCurrent())
+        let deltaTime: Float
+        if Renderer.lastFrameTime == 0 {
+            deltaTime = 1.0 / Float(view.preferredFramesPerSecond)
+        } else {
+            deltaTime = currentTime - Renderer.lastFrameTime
+        }
+        Renderer.lastFrameTime = currentTime
+        SceneManager.tickScene(renderCommandEncoder: renderCommandEncoder!, deltaTime: deltaTime)
+
         renderCommandEncoder?.popDebugGroup()
         
         renderCommandEncoder?.endEncoding()
