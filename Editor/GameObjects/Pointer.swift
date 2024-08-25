@@ -10,9 +10,9 @@ class Pointer: GameObject {
         self.camera = camera
     }
     
-    override func doUpdate() {
-        self.rotateZ(-atan2f(
-            Mouse.getMouseViewportPosition().x - getPositionX() + camera.getPositionX(),
-            Mouse.getMouseViewportPosition().y - getPositionY() + camera.getPositionY()))
-    }
+//    override func doUpdate() {
+//        self.rotateZ(-atan2f(
+//            Mouse.getMouseViewportPosition().x - getPositionX() + camera.getPositionX(),
+//            Mouse.getMouseViewportPosition().y - getPositionY() + camera.getPositionY()))
+//    }
 }

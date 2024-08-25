@@ -10,7 +10,7 @@ public class DebugCamera: Camera {
     init() {
         super.init(name: "Debug Camera", cameraType: .debug)
         _projectionMatrix = matrix_float4x4.perspective(degreesFov: 45.0,
-                                                        aspectRatio: Renderer.aspectRatio,
+                                                        aspectRatio: 1,
                                                         near: 0.1,
                                                         far: 1000)
     }

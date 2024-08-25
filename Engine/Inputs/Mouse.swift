@@ -68,9 +68,10 @@ public class Mouse {
     }
     
     ///Returns the mouse position in screen-view coordinates [-1, 1]
-    public static func getMouseViewportPosition() -> float2 {
-        let x = (overallMousePosition.x - Renderer.screenSize.x * 0.5) / (Renderer.screenSize.x * 0.5)
-        let y = (overallMousePosition.y - Renderer.screenSize.y * 0.5) / (Renderer.screenSize.y * 0.5)
-        return float2(x, y)
-    }
+    // TODO: move this to camera
+//    public static func getMouseViewportPosition() -> float2 {
+//        let x = (overallMousePosition.x - Renderer.screenSize.x * 0.5) / (Renderer.screenSize.x * 0.5)
+//        let y = (overallMousePosition.y - Renderer.screenSize.y * 0.5) / (Renderer.screenSize.y * 0.5)
+//        return float2(x, y)
+//    }
 }
