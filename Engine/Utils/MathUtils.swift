@@ -90,12 +90,12 @@ extension matrix_float4x4 {
     }
     
     //https://gamedev.stackexchange.com/questions/120338/what-does-a-perspective-projection-matrix-look-like-in-opengl
-    static func perspective(degreesFov: Float, aspectRatio: Float, near: Float, far: Float) -> matrix_float4x4 {
+    static func perspective(degreesFov: Float, aspect: Float, near: Float, far: Float) -> matrix_float4x4 {
         let fov = degreesFov.toRadians
         
         let t: Float = tan(fov / 2)
         
-        let x: Float = 1 / (aspectRatio * t)
+        let x: Float = 1 / (aspect * t)
         let y: Float = 1 / t
         let z: Float = -((far + near) / (far - near))
         let w: Float = -((2 * far * near) / (far - near))
@@ -108,6 +108,32 @@ extension matrix_float4x4 {
             float4(0, 0, w,  0)
         )
         return result
+    }
+    
+    static func orthographic(orthographicSize: Float, aspect: Float, near: Float, far: Float) -> matrix_float4x4 {
+        // Calculate the width and height based on the orthographic size and aspect ratio
+        let height = orthographicSize * 2.0
+        let width = height * aspect
+        
+        // Calculate the distances for the near and far planes
+        let zRange = far - near
+        let zNear = near
+        let zFar = far
+        
+        // Create the orthographic projection matrix
+        let scaleX = 2.0 / width
+        let scaleY = 2.0 / height
+        let scaleZ = -2.0 / zRange
+        let translateZ = -(zFar + zNear) / zRange
+        
+        var matrix = matrix_float4x4(columns: (
+            SIMD4<Float>(scaleX, 0, 0, 0),
+            SIMD4<Float>(0, scaleY, 0, 0),
+            SIMD4<Float>(0, 0, scaleZ, 0),
+            SIMD4<Float>(0, 0, translateZ, 1)
+        ))
+        
+        return matrix
     }
 }
 

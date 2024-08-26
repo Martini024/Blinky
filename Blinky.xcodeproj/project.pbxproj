@@ -23,7 +23,6 @@
 		59CC54C52C6919D6007BF8C5 /* BlinkyEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B4C8E82C674224001B040F /* BlinkyEngine.framework */; };
 		59CC54EA2C691B4C007BF8C5 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54CE2C691B4C007BF8C5 /* Camera.swift */; };
 		59CC54EB2C691B4D007BF8C5 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54CF2C691B4C007BF8C5 /* CameraManager.swift */; };
-		59CC54EC2C691B4D007BF8C5 /* DebugCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54D02C691B4C007BF8C5 /* DebugCamera.swift */; };
 		59CC54ED2C691B4D007BF8C5 /* MeshLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54D22C691B4C007BF8C5 /* MeshLibrary.swift */; };
 		59CC54EE2C691B4D007BF8C5 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54D32C691B4C007BF8C5 /* TextureLibrary.swift */; };
 		59CC54EF2C691B4D007BF8C5 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CC54D52C691B4C007BF8C5 /* Entities.swift */; };
@@ -125,7 +124,6 @@
 		59CC54C32C691969007BF8C5 /* Editor.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Editor.entitlements; sourceTree = "<group>"; };
 		59CC54CE2C691B4C007BF8C5 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		59CC54CF2C691B4C007BF8C5 /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
-		59CC54D02C691B4C007BF8C5 /* DebugCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugCamera.swift; sourceTree = "<group>"; };
 		59CC54D22C691B4C007BF8C5 /* MeshLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshLibrary.swift; sourceTree = "<group>"; };
 		59CC54D32C691B4C007BF8C5 /* TextureLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		59CC54D52C691B4C007BF8C5 /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 			children = (
 				59CC54CE2C691B4C007BF8C5 /* Camera.swift */,
 				59CC54CF2C691B4C007BF8C5 /* CameraManager.swift */,
-				59CC54D02C691B4C007BF8C5 /* DebugCamera.swift */,
 			);
 			path = Cameras;
 			sourceTree = "<group>";
@@ -629,7 +626,6 @@
 				59CC54F92C691B4D007BF8C5 /* Library.swift in Sources */,
 				59CC54F02C691B4D007BF8C5 /* LightManager.swift in Sources */,
 				59CC54FC2C691B4D007BF8C5 /* GameTime.swift in Sources */,
-				59CC54EC2C691B4D007BF8C5 /* DebugCamera.swift in Sources */,
 				59CC54F72C691B4D007BF8C5 /* Scene.swift in Sources */,
 				59CC54F12C691B4D007BF8C5 /* LightObject.swift in Sources */,
 				59CC54F42C691B4D007BF8C5 /* Node.swift in Sources */,
